@@ -1,0 +1,8 @@
+name: ${self:service}-todoCreateFunction
+role: FunctionTodoIamCreateRole
+handler: ${self:custom.handlerLocation}/create.createSingular
+events:
+  - http:
+      path: todo
+      method: post
+      cors: true

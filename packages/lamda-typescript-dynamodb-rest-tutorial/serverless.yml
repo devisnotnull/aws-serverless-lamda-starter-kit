@@ -1,0 +1,36 @@
+service: sls-typescript-todo-api-with-dynamodb
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+plugins:  
+  - serverless-dynamodb-local
+  - serverless-offline
+  - serverless-offline-scheduler
+
+custom:
+  serverless-offline:
+    port: 3001
+
+  defaultRegion: eu-west-1
+  region: ${opt:region, self:custom.defaultRegion}
+  environment: ${opt:stage, 'sandbox'}
+
+  handlerLocation: "dist/handlers"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+
+functions:
+  create: ${file(./serverless-partials/function-todoCreateSingular.yaml)}
+  getAll: ${file(./serverless-partials/function-todoGetAll.yaml)}
+  getById: ${file(./serverless-partials/function-todoGetById.yaml)}
+
+resources:
+  Resources:
+    FunctionTodoIamReadRole: ${file(./serverless-partials/iam-todo-create-role.yaml)}
+    FunctionTodoIamCreateRole: ${file(./serverless-partials/iam-todo-read-role.yaml)}
+    DynamoTodoTable: ${file(./serverless-partials/dynamodb-todo.yaml)}

@@ -1,0 +1,8 @@
+name: ${self:service}-todoGetByIdFunction
+role: FunctionTodoIamReadRole
+handler: ${self:custom.handlerLocation}/get.getById
+events:
+  - http:
+      path: todo
+      method: get
+      cors: true
