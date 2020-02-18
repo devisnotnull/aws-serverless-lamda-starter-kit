@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.build.json",
+
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "baseUrl": "./packages",
+    "paths": {
+      "ecom-model/*": ["ecom-model/src"],
+      "ecom-migrator/*": ["ecom-migrator/src"],
+      "ecom-product-api/*": ["ecom-product-api/src"],
+      "ecom-product-gui/*": ["ecom-product-gui/src"],
+      "ecom-lod-generator/*": ["ecom-lod-generator/src"],
+    },
+  }
+}

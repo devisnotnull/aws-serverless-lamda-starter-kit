@@ -1,0 +1,51 @@
+Type: AWS::IAM::Role
+Properties:
+  Path: /
+  RoleName: "${self:service}-consumeDispatchEstimates-${self:custom.environment}"
+  AssumeRolePolicyDocument:
+    Version: "2012-10-17"
+    Statement:
+      - Effect: Allow
+        Principal:
+          Service: lambda.amazonaws.com
+        Action: sts:AssumeRole
+  Policies:
+    - PolicyName: LambdaDefaultPolicy
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+            Resource:
+              - "arn:aws:logs:${self:custom.region}:${self:custom.account}:log-group:/aws/lambda/${self:service}-consumeDispatchEstimates-${self:custom.environment}*"
+    - PolicyName: LambdaUpdateDynamoDbPolicy
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - dynamodb:GetItem
+              - dynamodb:Query
+              - dynamodb:DescribeTable
+              - dynamodb:UpdateTable
+              - dynamodb:DeleteTable
+              - dynamodb:Scan
+              - dynamodb:PutItem
+            Resource:
+              - "arn:aws:dynamodb:${self:custom.region}:${self:custom.account}:table/${self:service}-${self:custom.environment}-v2"
+              - "arn:aws:dynamodb:${self:custom.region}:${self:custom.account}:table/${self:service}-${self:custom.environment}-v2/index/StackLocaleSlug"
+    - PolicyName: LambdaReadBabelSNSTopic
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - sns:ListSubscriptionsByTopic
+              - sns:Receive
+              - sns:Subscribe
+              - sns:UnSubscribe
+            Resource:
+              - "${self:custom.snsTopicArn}"

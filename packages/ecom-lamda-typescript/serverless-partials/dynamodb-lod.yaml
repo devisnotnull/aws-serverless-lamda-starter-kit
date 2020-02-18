@@ -1,0 +1,26 @@
+Type: AWS::DynamoDB::Table
+Properties:
+  TableName: ecom-lod-${self:custom.environment}
+  AttributeDefinitions:
+    -
+      AttributeName: "id"
+      AttributeType: "S"
+    -
+      AttributeName: "type"
+      AttributeType: "S"
+    -
+      AttributeName: "productId"
+      AttributeType: "S"
+  KeySchema:
+    - 
+      AttributeName: id
+      KeyType: RANGE
+    - 
+      AttributeName: type
+      KeyType: HASH
+    - 
+      AttributeName: productId
+      KeyType: HASH
+  ProvisionedThroughput:
+    ReadCapacityUnits: 2
+    WriteCapacityUnits: 2

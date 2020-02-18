@@ -1,0 +1,15 @@
+node_modules
+.DS_Store
+.idea
+_npp-vts.json
+_npp.json
+_opt.json
+_prod.json
+scripts/_npp-vts.json
+scripts/_npp.json
+scripts/_opt.json
+cmp1.json
+cmp2.json
+_npp_xref.json
+.vscode/settings.json
+product-migration/output/*
