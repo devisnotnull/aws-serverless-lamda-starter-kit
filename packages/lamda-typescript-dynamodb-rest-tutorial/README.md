@@ -152,15 +152,14 @@ We will start by rebuilding the application to ensure that the deployed artifact
 
 ```
 yarn build
-``
+```
 
 Once you have build the lastest version of the application you can deploy you application via the serverless CLI.
 
 You will need to ensure that you use the `tutorial` profile that you created previously.
 
 ```
-export AWS_PROFILE="tutorial
-" && sls deploy
+export AWS_PROFILE="tutorial" && sls deploy
 ```
 
 If all goes well then the serverless framework will provide you will a list of all of the deployed endpoints and some additional metadata.
