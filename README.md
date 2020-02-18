@@ -7,7 +7,7 @@ Over the course of this tutorial you will be deploying a set of simple todo lamd
 
 ## What will we be working with 
 
-`AWS Lambda` is a service that lets you run code without provisioning or managing servers. AWS Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second. Although Lambda does not support PHP natively, it has been recently extended to support AWS Lambda runtime API and layers capabilities. Because of this, it is possible to build a native PHP runtime for Lambda functions.
+`AWS Lambda` is a service that lets you run code without provisioning or managing servers. AWS Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second. 
 
 `AWS DynamoDB` is a key-value and document database that delivers single-digit millisecond performance at any scale. It’s a fully managed, multiregion, multimaster database with built-in security, backup and restore, and in-memory caching for internet-scale applications.
 
