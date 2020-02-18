@@ -1,4 +1,4 @@
-service: sls-typescript-rest-api-with-dynamodb
+service: sls-typescript-todo-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0 <2.0.0"
 plugins:  
@@ -7,7 +7,6 @@ plugins:
   - serverless-offline-scheduler
 
 custom:
-  ## Run serverless locally
   serverless-offline:
     port: 3001
 
@@ -15,11 +14,6 @@ custom:
   defaultRegion: eu-west-1
   region: ${opt:region, self:custom.defaultRegion}
   environment: ${opt:stage, 'sandbox'}
-
-  defaultStage: dev
-  currentStage: ${opt:stage, self:custom.defaultStage}
-  userPoolName: test-user-pool-${self:custom.currentStage}
-  userPoolClientName: test-user-pool-client-${self:custom.currentStage}
 
   ## Handler configuration
   handlerLocation: "dist/handlers"
@@ -29,10 +23,8 @@ provider:
   runtime: nodejs12.x
   region: eu-west-1
 
-  environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-
-  iamRoleStatements:
+  # IAM role statements so that services can be accessed in the AWS account
+  iamRoleStatements: 
     - Effect: Allow
       Action:
         - dynamodb:Query
@@ -43,78 +35,16 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 
-resources:
-  Resources:
-    TodosDynamoDbTable:
-      Type: 'AWS::DynamoDB::Table'
-      DeletionPolicy: Retain
-      Properties:
-        AttributeDefinitions:
-          -
-            AttributeName: id
-            AttributeType: S
-        KeySchema:
-          -
-            AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
-        TableName: ${self:provider.environment.DYNAMODB_TABLE}
-        
-    CognitoUserPool:
-      Type: "AWS::Cognito::UserPool"
-      Properties:
-        MfaConfiguration: OFF
-        UserPoolName: ${self:custom.userPoolName}
-        UsernameAttributes:
-          - email
-        Policies:
-          PasswordPolicy:
-            MinimumLength: 6
-            RequireLowercase: False
-            RequireNumbers: True
-            RequireSymbols: False
-            RequireUppercase: True
-
-    CognitoUserPoolClient:
-      Type: "AWS::Cognito::UserPoolClient"
-      Properties:
-        ClientName: ${self:custom.userPoolClientName}
-        GenerateSecret: False
-        UserPoolId:
-          Ref: CognitoUserPool
-
-    ApiGatewayAuthorizer:
-      DependsOn:
-        - ApiGatewayRestApi
-      Type: AWS::ApiGateway::Authorizer
-      Properties:
-        Name: cognito-authorizer
-        IdentitySource: method.request.header.Authorization
-        RestApiId:
-          Ref: ApiGatewayRestApi
-        Type: COGNITO_USER_POOLS
-        ProviderARNs:
-          - Fn::GetAtt: [CognitoUserPool, Arn]
-
-  Outputs:
-    CognitoUserPoolArn:
-      Value:
-        Fn::GetAtt:
-          - CognitoUserPool
-          - Arn
-      Export:
-        Name: CognitoUserPoolArn-${self:custom.currentStage}
-
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
 
 functions:
 
   create:
-    handler: ${self:custom.handlerLocation}/create.create
+    handler: ${self:custom.handlerLocation}/create.createSingular
     events:
       - http:
-          path: entity
+          path: todo
           method: post
           cors: true
 
@@ -122,15 +52,15 @@ functions:
     handler: ${self:custom.handlerLocation}/get.getAll
     events:
       - http:
-          path: entity
+          path: todo
           method: get
           cors: true
 
   getById:
-    handler: ${self:custom.handlerLocation}/get.get
+    handler: ${self:custom.handlerLocation}/get.getById
     events:
       - http:
-          path: entity/{id}
+          path: todo/{id}
           method: get
           cors: true
           request: 
@@ -138,30 +68,6 @@ functions:
               paths: 
                 id: true
 
-  registeredOnly:
-    handler: handler.hiUsers
-    events:
-      - http:
-          path: /hiUsers
-          method: get
-          authorizer:
-            type: COGNITO_USER_POOLS
-            authorizerId:
-              Ref: ApiGatewayAuthorizer
-          cors:
-            origin: 'http://localhost:3000'
-            headers:
-              - Content-Type
-              - X-Amz-Date
-              - Authorization
-              - X-Api-Key
-              - X-Amz-Security-Token
-              - X-Amz-User-Agent
-            allowCredentials: true
-
-  guests:
-    handler: handler.hiGuests
-    events:
-      - http:
-          path: /hiAll
-          method: get
+resources:
+  Resources:
+    TodoTable: ${file(./serverless-partials/dynamodb-todo.yaml)}

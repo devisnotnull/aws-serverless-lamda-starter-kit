@@ -5,4 +5,4 @@ import { Context } from 'aws-lambda';
  * @param context
  * @param callback
  */
-export declare const create: (event: import("aws-lambda").APIGatewayProxyEvent, context: Context, callback: import("aws-lambda").Callback<import("aws-lambda").APIGatewayProxyResult>) => void;
+export declare const createSingular: (event: import("aws-lambda").APIGatewayProxyEvent, context: Context, callback: import("aws-lambda").Callback<import("aws-lambda").APIGatewayProxyResult>) => void;

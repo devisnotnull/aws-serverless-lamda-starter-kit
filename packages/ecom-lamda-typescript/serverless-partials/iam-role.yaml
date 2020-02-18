@@ -1,7 +1,7 @@
 Type: AWS::IAM::Role
 Properties:
   Path: /
-  RoleName: "${self:service}-getDispatchEstimates-${self:custom.environment}"
+  RoleName: "${self:service}-todoIamRole"
   AssumeRolePolicyDocument:
     Version: "2012-10-17"
     Statement:
@@ -9,6 +9,7 @@ Properties:
         Principal:
           Service: lambda.amazonaws.com
         Action: sts:AssumeRole
+  
   Policies:
     - PolicyName: LambdaDefaultPolicy
       PolicyDocument:
@@ -20,16 +21,18 @@ Properties:
               - logs:CreateLogStream
               - logs:PutLogEvents
             Resource:
-              - "arn:aws:logs:${self:custom.region}:${self:custom.account}:log-group:/aws/lambda/${self:service}-getDispatchEstimates-${self:custom.environment}*"
-    - PolicyName: LambdaReadDynamoDbPolicy
+              - "arn:aws:logs:${self:custom.region}:*:log-group:/aws/lambda/${self:service}-consumeTodoResource-*"
+
+    - PolicyName: LambdaUpdateDynamoDbPolicy
       PolicyDocument:
         Version: "2012-10-17"
         Statement:
           - Effect: Allow
             Action:
-              - dynamodb:GetItem
               - dynamodb:Query
               - dynamodb:Scan
-            Resource:
-              - "arn:aws:dynamodb:${self:custom.region}:${self:custom.account}:table/${self:service}-${self:custom.environment}-v2"
-              - "arn:aws:dynamodb:${self:custom.region}:${self:custom.account}:table/${self:service}-${self:custom.environment}-v2/index/StackLocaleSlug"
+              - dynamodb:GetItem
+              - dynamodb:PutItem
+              - dynamodb:UpdateItem
+              - dynamodb:DeleteItem
+            Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"

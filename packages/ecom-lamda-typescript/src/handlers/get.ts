@@ -8,7 +8,7 @@ import { PutItemOutput, ScanOutput } from 'aws-sdk/clients/dynamodb';
  * @param context 
  * @param callback 
  */
-export const get = (event: APIGatewayEvent, context: Context, callback: APIGatewayProxyCallback) => {
+export const getById = (event: APIGatewayEvent, context: Context, callback: APIGatewayProxyCallback) => {
 
   const { id } = event.pathParameters;
   

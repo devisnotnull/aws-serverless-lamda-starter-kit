@@ -9,7 +9,7 @@ import { PutItemOutput } from 'aws-sdk/clients/dynamodb';
  * @param context 
  * @param callback 
  */
-export const create = (event: APIGatewayEvent, context: Context, callback: APIGatewayProxyCallback) => {
+export const createSingular = (event: APIGatewayEvent, context: Context, callback: APIGatewayProxyCallback) => {
 
   const timestamp: Date = new Date();
 
