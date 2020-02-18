@@ -1,8 +1,14 @@
 {
-  "extends": "./tsconfig.build.json",
-
+  "exclude": ["node_modules", "dist", "lib", "__tests__", "**/*.test*", "**/*.spec*"],
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "inlineSources": true,
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es6",
+    "sourceMap": false,
     "downlevelIteration": true,
-    "baseUrl": "./packages",
-  }
+    "noImplicitAny": false,
+  },
 }
