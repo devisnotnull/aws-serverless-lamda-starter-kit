@@ -1,15 +1,14 @@
 {
-  "extends": "./tsconfig.build.json",
-
+  "exclude": ["node_modules", "dist", "lib", "__tests__", "**/*.test*", "**/*.spec*"],
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "inlineSources": true,
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es6",
+    "sourceMap": false,
     "downlevelIteration": true,
-    "baseUrl": "./packages",
-    "paths": {
-      "ecom-model/*": ["ecom-model/src"],
-      "ecom-migrator/*": ["ecom-migrator/src"],
-      "ecom-product-api/*": ["ecom-product-api/src"],
-      "ecom-product-gui/*": ["ecom-product-gui/src"],
-      "ecom-lod-generator/*": ["ecom-lod-generator/src"],
-    },
-  }
+    "noImplicitAny": false,
+  },
 }

@@ -1,5 +1,18 @@
 # Sample lamda typescript tutorial 
 
+Over the course of this tutorial you will be deploying a set of simple todo lamda function, There are three core items we shall be deploying
+- Create endpoint
+- Get all todo's endpoint
+- Get by id todo's endpoint
+
+## What will we be working with 
+
+`AWS Lambda` is a service that lets you run code without provisioning or managing servers. AWS Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second. Although Lambda does not support PHP natively, it has been recently extended to support AWS Lambda runtime API and layers capabilities. Because of this, it is possible to build a native PHP runtime for Lambda functions.
+
+`AWS DynamoDB` is a key-value and document database that delivers single-digit millisecond performance at any scale. It’s a fully managed, multiregion, multimaster database with built-in security, backup and restore, and in-memory caching for internet-scale applications.
+
+![alt text](./docs/arch.png "Lamda and DynamoDB")
+
 ## Step one - Install the serverless framework 
 
 Install the Serverless Framework via npm which was already installed when you installed Node.js.
@@ -218,3 +231,35 @@ BODY
 	"text" : "This is the todo text"
 }
 ```
+
+## Step seven - But wait where are we storing all of the data
+
+You may be wondering, Where the hell are we saving and fecthing the todo entries.
+
+And the awnser to that is we are storing all of the records in `DynamoDB`, The serverless framework allows you to declare and create `DynamoDb` tables when deploying your serverless functions.
+
+We have declared a basic `DynamoDb` table within a seperate cloudformation file that is imported by the core serverless.yaml file and invoked when deploying the declared application.
+
+The declaration and configuration of a `DynamoDb` table is beyond the scope of this tutorial but you can view the configuration by going to the below file.
+
+```
+./packages/ecom-lamda-typescript/serverless-paritals/dynamodb-todo.yaml
+```
+
+Much like with the deployed lamda functions you can view, edit and update `DynamoDb` tabled using the AWS console.
+
+We will start by once again going back to [https://console.aws.amazon.com/](https://console.aws.amazon.com/).
+
+![alt text](./docs/lamda/001.png "Aws portal")
+
+Search for dynamodb
+
+![alt text](./docs/dynamo/002.png "Aws portal")
+
+You should now see a list of all of the dynamodb tables that are avaliable to you. You can click on our tutorial table.
+
+![alt text](./docs/dynamo/003.png "Aws portal")
+
+Now you can manage the deployed table, You can query and update all of the record within the database from the `DyanamoDB` table.
+
+![alt text](./docs/dynamo/004.png "Aws portal")
