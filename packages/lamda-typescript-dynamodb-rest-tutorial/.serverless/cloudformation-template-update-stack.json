@@ -81,7 +81,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-typescript-todo-api-with-dynamodb/dev/1582047439522-2020-02-18T17:37:19.522Z/sls-typescript-todo-api-with-dynamodb.zip"
+          "S3Key": "serverless/sls-typescript-todo-api-with-dynamodb/dev/1582069107973-2020-02-18T23:38:27.973Z/sls-typescript-todo-api-with-dynamodb.zip"
         },
         "FunctionName": "sls-typescript-todo-api-with-dynamodb-todoCreateFunction",
         "Handler": "dist/handlers/create.createSingular",
@@ -96,7 +96,7 @@
         "Timeout": 6,
         "Environment": {
           "Variables": {
-            "DYNAMODB_TABLE": "sls-typescript-todo-api-with-dynamodb-dev"
+            "DYNAMODB_TABLE": "sls-typescript-todo-api-with-dynamodb"
           }
         }
       },
@@ -105,14 +105,14 @@
         "FunctionTodoIamCreateRole"
       ]
     },
-    "CreateLambdaVersionDSOvpUGAi2yB8VOIo0z9G8XiaDMOxXKiHnN7DkPfhAk": {
+    "CreateLambdaVersionP2z1XwpmZNwbgbWiXAdZkRvMA5OjpBfVC2khZqyY5is": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "CreateLambdaFunction"
         },
-        "CodeSha256": "bsmlgqBs4CoOPUVTETzdYR/JipY1XB3Yw1ZOBm6eV2E="
+        "CodeSha256": "PVnImehGkmsVvbXAG82cAnraHMo6NLCtD9NXfMmzQxk="
       }
     },
     "GetAllLambdaFunction": {
@@ -122,7 +122,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-typescript-todo-api-with-dynamodb/dev/1582047439522-2020-02-18T17:37:19.522Z/sls-typescript-todo-api-with-dynamodb.zip"
+          "S3Key": "serverless/sls-typescript-todo-api-with-dynamodb/dev/1582069107973-2020-02-18T23:38:27.973Z/sls-typescript-todo-api-with-dynamodb.zip"
         },
         "FunctionName": "sls-typescript-todo-api-with-dynamodb-todoGetAllFunction",
         "Handler": "dist/handlers/get.getAll",
@@ -137,7 +137,7 @@
         "Timeout": 6,
         "Environment": {
           "Variables": {
-            "DYNAMODB_TABLE": "sls-typescript-todo-api-with-dynamodb-dev"
+            "DYNAMODB_TABLE": "sls-typescript-todo-api-with-dynamodb"
           }
         }
       },
@@ -146,14 +146,14 @@
         "FunctionTodoIamReadRole"
       ]
     },
-    "GetAllLambdaVersion722vswUPYHRSHuA1001R71FUiTj4Hwwp8PWqUCeOwc": {
+    "GetAllLambdaVersionlseFJNTugf2KrfNJ5IcWy3K4zh2WIthJCTYGkcc": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetAllLambdaFunction"
         },
-        "CodeSha256": "bsmlgqBs4CoOPUVTETzdYR/JipY1XB3Yw1ZOBm6eV2E="
+        "CodeSha256": "PVnImehGkmsVvbXAG82cAnraHMo6NLCtD9NXfMmzQxk="
       }
     },
     "GetByIdLambdaFunction": {
@@ -163,7 +163,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/sls-typescript-todo-api-with-dynamodb/dev/1582047439522-2020-02-18T17:37:19.522Z/sls-typescript-todo-api-with-dynamodb.zip"
+          "S3Key": "serverless/sls-typescript-todo-api-with-dynamodb/dev/1582069107973-2020-02-18T23:38:27.973Z/sls-typescript-todo-api-with-dynamodb.zip"
         },
         "FunctionName": "sls-typescript-todo-api-with-dynamodb-todoGetByIdFunction",
         "Handler": "dist/handlers/get.getById",
@@ -178,7 +178,7 @@
         "Timeout": 6,
         "Environment": {
           "Variables": {
-            "DYNAMODB_TABLE": "sls-typescript-todo-api-with-dynamodb-dev"
+            "DYNAMODB_TABLE": "sls-typescript-todo-api-with-dynamodb"
           }
         }
       },
@@ -187,14 +187,14 @@
         "FunctionTodoIamReadRole"
       ]
     },
-    "GetByIdLambdaVersioneffBKTbbLIxIwSDwHkEASKhXfnGVH7n13hHfMYJUp8k": {
+    "GetByIdLambdaVersionfRDTZR9XYQTPzURV8C4zYCINiLx8dhHl7WIZ0B9c": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GetByIdLambdaFunction"
         },
-        "CodeSha256": "bsmlgqBs4CoOPUVTETzdYR/JipY1XB3Yw1ZOBm6eV2E="
+        "CodeSha256": "PVnImehGkmsVvbXAG82cAnraHMo6NLCtD9NXfMmzQxk="
       }
     },
     "ApiGatewayRestApi": {
@@ -223,6 +223,18 @@
         }
       }
     },
+    "ApiGatewayResourceTodoIdVar": {
+      "Type": "AWS::ApiGateway::Resource",
+      "Properties": {
+        "ParentId": {
+          "Ref": "ApiGatewayResourceTodo"
+        },
+        "PathPart": "{id}",
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
     "ApiGatewayMethodTodoOptions": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
@@ -234,8 +246,7 @@
             "ResponseParameters": {
               "method.response.header.Access-Control-Allow-Origin": true,
               "method.response.header.Access-Control-Allow-Headers": true,
-              "method.response.header.Access-Control-Allow-Methods": true,
-              "method.response.header.Access-Control-Allow-Credentials": true
+              "method.response.header.Access-Control-Allow-Methods": true
             },
             "ResponseModels": {}
           }
@@ -253,8 +264,7 @@
               "ResponseParameters": {
                 "method.response.header.Access-Control-Allow-Origin": "'*'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'",
-                "method.response.header.Access-Control-Allow-Credentials": "'false'"
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
               },
               "ResponseTemplates": {
                 "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
@@ -264,6 +274,51 @@
         },
         "ResourceId": {
           "Ref": "ApiGatewayResourceTodo"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
+    "ApiGatewayMethodTodoIdVarOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "ContentHandling": "CONVERT_TO_TEXT",
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
+              },
+              "ResponseTemplates": {
+                "application/json": "#set($origin = $input.params(\"Origin\"))\n#if($origin == \"\") #set($origin = $input.params(\"origin\")) #end\n#if($origin.matches(\".*\")) #set($context.responseOverride.header.Access-Control-Allow-Origin = $origin) #end"
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceTodoIdVar"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -344,6 +399,51 @@
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
+                    "GetAllLambdaFunction",
+                    "Arn"
+                  ]
+                },
+                "/invocations"
+              ]
+            ]
+          }
+        },
+        "MethodResponses": []
+      }
+    },
+    "ApiGatewayMethodTodoIdVarGet": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "HttpMethod": "GET",
+        "RequestParameters": {
+          "method.request.path.id": true
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceTodoIdVar"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        },
+        "ApiKeyRequired": false,
+        "AuthorizationType": "NONE",
+        "Integration": {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition"
+                },
+                ":apigateway:",
+                {
+                  "Ref": "AWS::Region"
+                },
+                ":lambda:path/2015-03-31/functions/",
+                {
+                  "Fn::GetAtt": [
                     "GetByIdLambdaFunction",
                     "Arn"
                   ]
@@ -356,7 +456,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1582047424710": {
+    "ApiGatewayDeployment1582069094942": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -366,9 +466,10 @@
       },
       "DependsOn": [
         "ApiGatewayMethodTodoOptions",
+        "ApiGatewayMethodTodoIdVarOptions",
         "ApiGatewayMethodTodoPost",
         "ApiGatewayMethodTodoGet",
-        "ApiGatewayMethodTodoGet"
+        "ApiGatewayMethodTodoIdVarGet"
       ]
     },
     "CreateLambdaPermissionApiGateway": {
@@ -482,7 +583,7 @@
         }
       }
     },
-    "FunctionTodoIamReadRole": {
+    "FunctionTodoIamCreateRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "Path": "/",
@@ -513,7 +614,7 @@
                     "logs:PutLogEvents"
                   ],
                   "Resource": [
-                    "arn:aws:logs:eu-west-1:*:log-group:/aws/lambda/sls-typescript-todo-api-with-dynamodb-consumeTodoResource-*"
+                    "arn:aws:logs:eu-west-1:*:log-group:/aws/lambda/sls-typescript-todo-api-with-dynamodb-*"
                   ]
                 }
               ]
@@ -534,7 +635,7 @@
                     "dynamodb:UpdateItem",
                     "dynamodb:DeleteItem"
                   ],
-                  "Resource": "arn:aws:dynamodb:eu-west-1:*:table/sls-typescript-todo-api-with-dynamodb-dev"
+                  "Resource": "arn:aws:dynamodb:eu-west-1:*:table/sls-typescript-todo-api-with-dynamodb"
                 }
               ]
             }
@@ -542,7 +643,7 @@
         ]
       }
     },
-    "FunctionTodoIamCreateRole": {
+    "FunctionTodoIamReadRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
         "Path": "/",
@@ -573,7 +674,7 @@
                     "logs:PutLogEvents"
                   ],
                   "Resource": [
-                    "arn:aws:logs:eu-west-1:*:log-group:/aws/lambda/sls-typescript-todo-api-with-dynamodb-consumeTodoResource-*"
+                    "arn:aws:logs:eu-west-1:*:log-group:/aws/lambda/sls-typescript-todo-api-with-dynamodb-*"
                   ]
                 }
               ]
@@ -591,7 +692,7 @@
                     "dynamodb:Scan",
                     "dynamodb:GetItem"
                   ],
-                  "Resource": "arn:aws:dynamodb:eu-west-1:*:table/sls-typescript-todo-api-with-dynamodb-dev"
+                  "Resource": "arn:aws:dynamodb:eu-west-1:*:table/sls-typescript-todo-api-with-dynamodb"
                 }
               ]
             }
@@ -619,7 +720,7 @@
           "ReadCapacityUnits": 1,
           "WriteCapacityUnits": 1
         },
-        "TableName": "sls-typescript-todo-api-with-dynamodb-dev"
+        "TableName": "sls-typescript-todo-api-with-dynamodb"
       }
     }
   },
@@ -632,19 +733,19 @@
     "CreateLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "CreateLambdaVersionDSOvpUGAi2yB8VOIo0z9G8XiaDMOxXKiHnN7DkPfhAk"
+        "Ref": "CreateLambdaVersionP2z1XwpmZNwbgbWiXAdZkRvMA5OjpBfVC2khZqyY5is"
       }
     },
     "GetAllLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetAllLambdaVersion722vswUPYHRSHuA1001R71FUiTj4Hwwp8PWqUCeOwc"
+        "Ref": "GetAllLambdaVersionlseFJNTugf2KrfNJ5IcWy3K4zh2WIthJCTYGkcc"
       }
     },
     "GetByIdLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GetByIdLambdaVersioneffBKTbbLIxIwSDwHkEASKhXfnGVH7n13hHfMYJUp8k"
+        "Ref": "GetByIdLambdaVersionfRDTZR9XYQTPzURV8C4zYCINiLx8dhHl7WIZ0B9c"
       }
     },
     "ServiceEndpoint": {

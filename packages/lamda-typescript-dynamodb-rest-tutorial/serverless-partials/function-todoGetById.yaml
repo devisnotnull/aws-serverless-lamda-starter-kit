@@ -3,6 +3,12 @@ role: FunctionTodoIamReadRole
 handler: ${self:custom.handlerLocation}/get.getById
 events:
   - http:
-      path: todo
+      path: todo/{id}
       method: get
       cors: true
+      request: 
+        parameters: 
+          paths: 
+            id: true
+
+      

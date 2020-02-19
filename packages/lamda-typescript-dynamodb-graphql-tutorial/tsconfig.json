@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2018",
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "inlineSources": true,
+    "downlevelIteration": true,
+    "noImplicitAny": false,
+    "typeRoots": [
+      "src/types",
+      "node_modules/@types"
+    ],
+  },
+  "exclude": ["node_modules", "dist", "lib", "__tests__", "**/*.test*", "**/*.spec*"],
+  "types": [
+    "node",
+    "aws-sdk"
+  ],
+}

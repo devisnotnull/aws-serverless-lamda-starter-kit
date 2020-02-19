@@ -22,7 +22,7 @@ provider:
   region: eu-west-1
 
   environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+    DYNAMODB_TABLE: ${self:service}
 
 functions:
   create: ${file(./serverless-partials/function-todoCreateSingular.yaml)}
@@ -31,6 +31,6 @@ functions:
 
 resources:
   Resources:
-    FunctionTodoIamReadRole: ${file(./serverless-partials/iam-todo-create-role.yaml)}
-    FunctionTodoIamCreateRole: ${file(./serverless-partials/iam-todo-read-role.yaml)}
-    DynamoTodoTable: ${file(./serverless-partials/dynamodb-todo.yaml)}
+    FunctionTodoIamCreateRole: ${file(./resources/iam-todo-create-role.yaml)}
+    FunctionTodoIamReadRole: ${file(./resources/iam-todo-read-role.yaml)}
+    DynamoTodoTable: ${file(./resources/dynamodb-todo.yaml)}

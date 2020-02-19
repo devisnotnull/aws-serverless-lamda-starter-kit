@@ -1,0 +1,8 @@
+name: ${self:service}-graphqlFunction
+role: FunctionTodoIamCreateRole
+handler: ${self:custom.handlerLocation}/graphql.handler
+events:
+  - http:
+      path: graphql
+      method: post
+      cors: true
