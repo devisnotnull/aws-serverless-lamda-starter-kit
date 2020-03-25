@@ -1,0 +1,29 @@
+
+.Content {
+    display: flex;  
+    flex-direction: row;
+}
+
+.Description {
+    order: 1;
+    flex: 2;
+    padding: 0 1rem 1rem 1.5rem;
+}
+
+.Breakdown {
+    order: 2;
+    flex: 1;
+    padding: 0 1rem 0 1rem;
+}
+
+@media (max-width: 1024px) {
+    .Description {
+        flex: 3;
+    }
+}
+
+@media (max-width: 850px) {
+    .Content {  
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,52 @@
+@import url('https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN_r8OUuhpKKSTjw.woff2');
+@import url('https://fonts.gstatic.com/s/opensans/v15/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2');
+@import url('https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhpKKSTjw.woff2');
+
+:root {
+    --base-font-famiy: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --base-font-weight: 100;
+    --base-font-size: 10px;
+    --base-container-font-size: 10px;
+    --base-line-heigh: 2rem;
+    --max-size: 150rem;
+}
+
+h1 {
+    font-size: var(--header-1);
+    display: block;
+    padding: 2rem 0rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: var(--header-2);
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 0rem;
+    margin: 0;
+}
+
+h3 {
+    font-size: var(--header-3);
+    display: block;
+    padding: 1rem 0rem;
+    margin: 0;
+}
+
+h4 {
+    font-size: var(--header-4);
+    display: block;
+    padding: 0.5rem 0rem;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--base-colour);
+}
+
+p {
+  font-size: 1.4rem;
+  line-height: var(--default-line-heigh);
+}

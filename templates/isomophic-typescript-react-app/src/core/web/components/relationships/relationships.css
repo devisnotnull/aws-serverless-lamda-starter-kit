@@ -1,0 +1,77 @@
+.Image {
+  width: 33%;
+}
+
+.Content {
+  display: flex;
+  flex-direction: row;
+}
+
+.Description {
+  order: 1;
+  flex: 2;
+  padding: 0 1rem 1rem 1.5rem;
+}
+
+.Breakdown {
+  order: 2;
+  flex: 1;
+  padding: 0 1rem 0 1rem;
+}
+
+.Relation--Container {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@media (max-width: 1190px) {
+  .Header--Container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Header--Container {
+    margin-top: 6rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .Photo {
+    width: 10rem;
+    height: 10rem;
+    margin-top: -5rem;
+  }
+
+  .Photo img {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .Image {
+    width: 50%;
+  }
+
+  .Description {
+    flex: 3;
+  }
+
+  .Breakdown {
+    flex: 2;
+  }
+}
+
+@media (max-width: 850px) {
+  .Content {
+    flex-direction: column;
+  }
+
+  .Image {
+    width: 100%;
+  }
+}

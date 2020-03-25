@@ -1,0 +1,19 @@
+.Button {
+
+}
+
+.Button--Default {
+  background-color: var(background-color);
+}
+
+.Button--Primary {
+  background-color: var(background-color);
+}
+
+.Button--Secondary {
+  background-color: var(grey);
+}
+
+.Button--Alert {
+  background-color: var(red);
+}

@@ -1,0 +1,55 @@
+pipeline {
+  agent {
+    docker {
+      image 'quay.io/photobox/serverless-build:12.14.0-git'
+      label 'amazon-ecs-docker-default'
+    }
+  }
+
+  options {
+    timeout(time: 1, unit: 'HOURS')
+    timestamps()
+    buildDiscarder(logRotator(numToKeepStr: '20'))
+  }
+
+  environment {
+    SLS_DEBUG = "*"
+    HOME = "${env.WORKSPACE}"
+  }
+
+  stages {
+    stage('Install dependencies') {
+      steps {
+        sh 'cd $WORKSPACE'
+        sh 'yarn --frozen-lockfile'
+      }
+    }
+
+    stage('Deploy: development') {
+      steps {
+        withAWS(role: 'ecom-{SERVICE}-role', roleAccount: '855439869752') {
+          sh 'yarn run sls create_domain -s development'
+          sh 'yarn deploy:development'
+        }
+      }
+    }
+
+    stage('Deploy: staging') {
+      steps {
+        withAWS(role: 'ecom-{SERVICE}-role', roleAccount: '855439869752') {
+          sh 'yarn run sls create_domain -s development'
+          sh 'yarn deploy:staging'
+        }
+      }
+    }
+
+    stage('Deploy: production') {
+      steps {
+        withAWS(role: 'ecom-{SERVICE}-role', roleAccount: '855439869752') {
+          sh 'yarn run sls create_domain -s development'
+          sh 'yarn deploy:product'
+        }
+      }
+    }
+  }
+}

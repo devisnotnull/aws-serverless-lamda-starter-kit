@@ -1,0 +1,36 @@
+{
+  "name": "Photobox Categorization API GraphQL",
+  "schemaPath": "github-schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Local GraphQL Endpoint": {
+        "url": "http://localhost:3005/v2/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      },
+      "Development GraphQL Endpoint": {
+        "url": "http://localhost:3005/v2/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      },
+      "Staging GraphQL Endpoint": {
+        "url": "http://localhost:3005/v2/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      },
+      "Production GraphQL Endpoint": {
+        "url": "http://localhost:3005/v2/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": true
+      }
+    }
+  }
+}

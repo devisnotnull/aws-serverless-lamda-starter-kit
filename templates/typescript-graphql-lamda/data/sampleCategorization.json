@@ -1,0 +1,267 @@
+[
+    // Product
+    {
+        "categorization": {
+            "parentUuid": "1621f129-15dd-4f26-a4c0-611be74acc68",
+            "parentType": "product",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95483"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95484"
+                },
+                {
+                    "weight": 2,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95485"
+                },
+                {
+                    "weight": 3,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95486"
+                },
+                {
+                    "weight": 4,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95487"
+                },
+                {
+                    "weight": 5,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95488"
+                },
+                {
+                    "weight": 6,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid":  "f8297cb9-a5e6-430e-8cf2-6b2ff2d95489"
+                },
+                {
+                    "weight": 7,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95490"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-variant",
+                    "childUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd1"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-variant",
+                    "childUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd2"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "quicksell-variant",
+                    "childUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd1"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "quicksell-variant",
+                    "childUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd2"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-recommendation",
+                    "childUuid": "5cf17f29-03cf-4e93-b15e-bc48f2516ab9"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-variant",
+                    "childUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd1"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "product-variant",
+                    "childUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd"
+                }
+            ]
+        }
+    },
+
+    // Variant
+    {
+        "categorization": {
+            "parentUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd1",
+            "parentType": "variant",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95486"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95487"
+                },
+                {
+                    "weight": 2,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95489"
+                }
+            ]
+        }
+    },
+    {
+        "categorization": {
+            "parentUuid": "ca38609d-abef-4ac3-ac7b-98efe8407bd2",
+            "parentType": "variant",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95483"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95487"
+                },
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "product-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95489"
+                }
+            ]
+        }
+    },
+
+    // Option groups
+    {
+        "categorization": {
+            "parentUuid": "2d92012e-b0c8-4910-bd30-4797ea9b437d",
+            "parentType": "option-group",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95483"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95484"
+                },
+                {
+                    "weight": 2,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95485"
+                },
+                {
+                    "weight": 2,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95486"
+                }
+            ]
+        }
+    },
+    {
+        "categorization": {
+            "parentUuid": "4430627e-434e-11ea-b77f-2e728ce88125",
+            "parentType": "option-group",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95487"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95488"
+                }
+            ]
+        }
+    },
+    {
+        "categorization": {
+            "parentUuid": "48cc16cb-36ae-4d36-92f8-100c8a3d4fbc",
+            "parentType": "option-group",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95489"
+                },
+                {
+                    "weight": 1,
+                    "partition": "",
+                    "relationshipType": "option-group-option",
+                    "childUuid": "f8297cb9-a5e6-430e-8cf2-6b2ff2d95490"
+                }
+            ]
+        }
+    },
+
+    // Range 
+    {
+        "categorization": {
+            "parentUuid": "5cf17f29-03cf-4e93-b15e-bc48f2516adj7",
+            "parentType": "range",
+            "brand": "default",
+            "locale": "default",
+            "device": "default",
+            "items":[
+                    {
+                    "weight": 0,
+                    "partition": "",
+                    "relationshipType": "range-product",
+                    "childUuid": "5cf17f29-03cf-4e93-b15e-bc48f2516ab8"
+                }
+            ]
+        }
+    }
+
+]

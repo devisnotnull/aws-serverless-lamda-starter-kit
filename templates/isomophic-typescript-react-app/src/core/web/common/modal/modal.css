@@ -1,0 +1,70 @@
+.Modal {
+   display: none;
+}
+
+.Modal--visible {
+  display: block;
+}
+
+.Modal--Overlay {
+  position: absolute;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.2;
+}
+
+.Modal--Content {
+  bottom: 0;
+  z-index: 999;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  background: white;
+  right: 0;
+  top: 0; 
+  height: 100%;
+  width: 100%;
+}
+
+.Modal--Header {
+  font-weight: bold;
+  padding: 2rem;
+}
+
+@media (--viewport-tablet) { 
+
+  .Modal--Content {
+    height: 50%;
+    width: 50%;
+  }
+
+  .Modal--size-small {
+    height: 30%;
+    width: 30%;
+  }
+
+  .Modal--size-medium {
+    height: 50%;
+    width: 50%;
+  }
+
+  .Modal--size-large {
+    height: 70%;
+    width: 70%;
+  }
+
+  .Modal--size-xlarge {
+    height: 85%;
+    width: 85%;
+  }
+
+  .Modal--size-full {
+    height: 100%;
+    width: 100%;
+  }
+  
+}
