@@ -7,4 +7,6 @@ export const getLayout = (state: IState): ILayoutState => prop('layout', state)
 
 export const getLayoutBreadcrumb = pipe(getLayout, prop('breadcrumb'))
 
-export const getIsModalVisible = pipe(getLayout, prop('isModalVisible'))
+export const getModal = pipe(getLayout, prop('modal'))
+
+export const getIsModalVisible = pipe(getModal, prop('isVisible'))

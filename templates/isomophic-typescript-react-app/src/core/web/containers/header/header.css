@@ -1,5 +1,4 @@
 .Header {
-    composes: Container from '../../style/common.css';
     padding: var(--base-pad);
     display: flex;
     justify-content: space-evenly;

@@ -5,9 +5,11 @@ import { Helmet } from 'react-helmet'
 import Header from './containers/header/header'
 
 import HomeViewContainer from './pages/home/home'
-import TodoViewContainer from './pages/todo/todo'
-import TodoyIdViewContainer from './pages/todoById/todoById'
+import DemoViewContainer from './pages/demo/demo'
+import PostsContainer from './pages/posts/posts'
 import NotFoundComponent from './pages/notFound/notFound'
+
+import '@core/web/style/core.css';
 
 interface StateProps {}
 interface ActionProps {}
@@ -20,7 +22,7 @@ class AppRouter extends React.Component<Props> {
         return (
             <>
                 <Helmet>
-                    <title>Photobox PIMM</title>
+                    <title>Title</title>
                     <meta name="description" content="" />
                     <meta name="og:title" property="og:title" content="" />
                     <meta property="og:type" content="website" />
@@ -31,8 +33,8 @@ class AppRouter extends React.Component<Props> {
 
                 <Switch>
                     <Route exact path="/" component={HomeViewContainer} />
-                    <Route exact path="/to-do" component={TodoViewContainer} />
-                    <Route exact path="/to-do/:id" component={TodoyIdViewContainer} />
+                    <Route exact path="/demo" component={DemoViewContainer} />
+                    <Route exact path="/posts" component={PostsContainer} />
                     <Route component={NotFoundComponent} />
                 </Switch>
             </>

@@ -2,11 +2,11 @@ import { createStore, combineReducers, applyMiddleware, Store } from 'redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import createSaga, { END, SagaMiddleware } from 'redux-saga'
+import createSaga, { END, SagaMiddleware, Saga } from 'redux-saga'
 
 import reducers from './reducers'
 
-export default (history: any = undefined, reduxState = undefined) => {
+export default (history: any = undefined, reduxState: any = undefined) => {
     // Create our store
     const saga: SagaMiddleware = createSaga()
     const router = routerMiddleware(history)
@@ -17,8 +17,8 @@ export default (history: any = undefined, reduxState = undefined) => {
     // Create our store
     const store: Store = createStore(reducers, reduxState, enhancer)
 
-        // TODO: This needs to be properly types
-    ;(store as any).runSaga = saga.run
+    // TODO: This needs to be properly types
+    ;(store as any).runSaga = (initSaga: Saga, params: any) => saga.run(initSaga, params)
     ;(store as any).closeSagas = () => store.dispatch(END)
 
     // TODO: Cleanup

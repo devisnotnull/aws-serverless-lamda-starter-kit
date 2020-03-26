@@ -1,4 +1,4 @@
-  {
+{
   "compilerOptions": {
     "outDir": "dist",
     "module": "commonjs",
@@ -8,7 +8,8 @@
     "paths": {
       "@client/*": ["client/*"],
       "@server/*": ["server/*"],
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "@config/*": ["config/*"]
     },
     "skipLibCheck": true,
     "sourceMap": true,

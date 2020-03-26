@@ -11,7 +11,7 @@ type IStateProps = {
 export type IColumnProps = IStateProps
 
 export const Column: React.FC<IColumnProps> = ({ children, size }) => (
-    <div className={classnames(styles[`Grid--col-${size}`])}>{children}</div>
+    <div className={classnames(styles[`Grid--col-${size ?? 12}`])}>{children}</div>
 )
 
 export default Column

@@ -1,9 +1,9 @@
 declare const styles: {
   readonly "Button": string;
-  readonly "Button--Default": string;
-  readonly "Button--Primary": string;
-  readonly "Button--Secondary": string;
-  readonly "Button--Alert": string;
+  readonly "Button--default": string;
+  readonly "Button--primary": string;
+  readonly "Button--secondary": string;
+  readonly "Button--alert": string;
 };
 export = styles;
 

@@ -1,9 +1,13 @@
 export interface ILayoutState {
     breadcrumb: string[]
-    isModalVisible: boolean
+    modal : {
+        isVisible: boolean
+    }
 }
 
 export const initialState: ILayoutState = {
     breadcrumb: [],
-    isModalVisible: true,
+    modal: {
+        isVisible: false,
+    },
 }

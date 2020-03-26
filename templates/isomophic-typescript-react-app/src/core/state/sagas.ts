@@ -2,46 +2,43 @@ import { all } from 'redux-saga/effects'
 import { createRequestInstance, watchRequests } from 'redux-saga-requests'
 import { createDriver } from 'redux-saga-requests-graphql'
 
-import { optionGroupSagas } from './optionGroup/sagas'
+import { postSagas } from './post/sagas'
+import { AppConfig } from '@core/models/config'
 
 function* onRequestSaga(request: unknown, action: unknown) {
-    // do sth with you request, like add token to header, or dispatch some action etc.
     return request
 }
 
 function* onSuccessSaga(response: unknown, action: unknown) {
-    // do sth with the response, dispatch some action etc
     return response
 }
 
 function* onErrorSaga(error: unknown, action: unknown) {
-    // do sth here, like dispatch some action
-    console.error('There has been an action error')
-    // not related token error, we pass it like nothing happened
+    console.error('There has been an action error, ', error)
+    console.error('Failed action, ', action)
     return { error }
 }
 
 function* onAbortSaga(action: unknown) {
-    // do sth, for example an action dispatch
     console.error('Action has been aborted')
 }
 
-export default function* rootSaga() {
+export default function* rootSaga(config: Partial<AppConfig>) {
+    console.log('config, ', config);
     try {
         yield all([
             createRequestInstance({
-                driver: createDriver({
-                    url: 'http://localhost:3005/v2/graphql',
-                }), // to derive from config
+                driver: createDriver({ url: config?.graphql ?? '' }), 
                 onRequest: onRequestSaga,
                 onSuccess: onSuccessSaga,
                 onError: onErrorSaga,
                 onAbort: onAbortSaga,
             }),
             watchRequests(),
-            optionGroupSagas(),
+            postSagas(),
         ])
     } catch (e) {
         console.error('We have encountered an error')
+        console.error(e)
     }
 }

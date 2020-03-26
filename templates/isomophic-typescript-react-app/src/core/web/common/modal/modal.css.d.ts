@@ -1,9 +1,8 @@
 declare const styles: {
-  readonly "Modal": string;
   readonly "Modal--visible": string;
-  readonly "Modal--Overlay": string;
-  readonly "Modal--Content": string;
-  readonly "Modal--Header": string;
+  readonly "Modal--overlay": string;
+  readonly "Modal--content": string;
+  readonly "Modal--header": string;
   readonly "Modal--size-small": string;
   readonly "Modal--size-medium": string;
   readonly "Modal--size-large": string;

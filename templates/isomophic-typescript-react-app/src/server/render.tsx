@@ -8,10 +8,13 @@ import { StaticRouter } from 'react-router'
 import { Request, Response } from 'express'
 import { existsSync, readFileSync } from 'fs'
 
+import { config } from '@config/index'
+import { AppConfig } from '@core/models/config';
+import createStore from '@core/state/store'
+import rootSaga from '@core/state/sagas'
+import App from '@core/web/app'
+
 import Html from './html'
-import createStore from '../core/state/store'
-import rootSaga from '../core/state/sagas'
-import App from '../core/web/app'
 
 let manifest: any = {}
 
@@ -33,14 +36,14 @@ try {
  * @param assets
  * @param res
  */
-const renderApp = (url: string, res: Response, store: Store): string => {
+const renderApp = (url: string, res: Response, store: Store, appConfiguration: Partial<AppConfig>): string => {
     const response: string = ''
-
     const PROD = process.env.NODE_ENV === 'production'
     const context = {
         splitPoints: [],
     }
 
+    console.log("appConfiguration, ", appConfiguration)
     const rootComponent = PROD ? (
         <Provider store={store}>
             <StaticRouter location={url}>
@@ -49,12 +52,12 @@ const renderApp = (url: string, res: Response, store: Store): string => {
         </Provider>
     ) : null
     ;(store as any)
-        .runSaga(rootSaga)
+        .runSaga(rootSaga, appConfiguration)
         .toPromise()
         .then(() => {
             // Get state from store after sagas were run and strigify it for rendering in HTML
             const state = store.getState()
-            const initialState = `window.__INITIAL_STATE__ = ${JSON.stringify(state)}`
+            const initialState = `window.__INITIAL_STATE__ = ${JSON.stringify({ ...state, config: { config: appConfiguration } })}`
             const splitPoints = `window.__SPLIT_POINTS__ = ${JSON.stringify(context.splitPoints)}`
             const html = renderToString(
                 <Html
@@ -67,10 +70,8 @@ const renderApp = (url: string, res: Response, store: Store): string => {
             )
             res.send(html)
         })
-
     // Dispatch a close event so sagas stop listening after they're resolved
     ;(store as any).closeSagas()
-
     return response
 }
 
@@ -82,5 +83,6 @@ const renderApp = (url: string, res: Response, store: Store): string => {
 export const renderPageExpress = (req: Request, res: Response): string => {
     const history = createHistory()
     const store = createStore(history)
-    return renderApp(req.url, res, store)
+    const appConfiguration: Partial<AppConfig> = config
+    return renderApp(req.url, res, store, appConfiguration)
 }

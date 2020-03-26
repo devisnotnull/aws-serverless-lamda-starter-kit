@@ -1,12 +1,8 @@
-.Modal {
-   display: none;
-}
-
 .Modal--visible {
   display: block;
 }
 
-.Modal--Overlay {
+.Modal--overlay {
   position: absolute;
   z-index: 998;
   top: 0;
@@ -15,9 +11,10 @@
   height: 100%;
   background-color: black;
   opacity: 0.2;
+  display: none;
 }
 
-.Modal--Content {
+.Modal--content {
   bottom: 0;
   z-index: 999;
   left: 0;
@@ -28,16 +25,17 @@
   top: 0; 
   height: 100%;
   width: 100%;
+  display: none;
 }
 
-.Modal--Header {
+.Modal--header {
   font-weight: bold;
   padding: 2rem;
 }
 
 @media (--viewport-tablet) { 
 
-  .Modal--Content {
+  .Modal--content {
     height: 50%;
     width: 50%;
   }

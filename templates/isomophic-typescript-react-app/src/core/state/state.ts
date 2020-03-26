@@ -1,12 +1,13 @@
 import { RouterState } from 'react-router-redux'
 
-import { IOptionGroupState } from './optionGroup/reducer'
+import { IAppConfigState  } from './config/state';
+import { IPostState } from './post/state'
 import { ILayoutState } from './layout/state'
 
 export interface IState {
-    optionGroups: IOptionGroupState
+    config: IAppConfigState,
+    post: IPostState
     layout: ILayoutState
-    // External reducers
     router: RouterState
     network: any
 }

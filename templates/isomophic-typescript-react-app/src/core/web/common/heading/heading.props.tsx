@@ -5,7 +5,7 @@ type IStateProps = {
 }
 
 type IActionProps = {
-    onHover(): void
+    onHover?(): void
 }
 
 export type IHeadingProps = IStateProps & IActionProps

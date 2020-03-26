@@ -1,8 +1,6 @@
 :root {
-  --tablet-breakpoint: 100rem;
-  --mobile-breakpoint: 70rem;
   --max-size: 130rem;
 }
 
-@custom-media --viewport-desktop (min-width: 100rem);
-@custom-media --viewport-tablet (min-width: 60rem);
+@custom-media --viewport-desktop (min-width: 1000px);
+@custom-media --viewport-tablet (min-width: 700px);

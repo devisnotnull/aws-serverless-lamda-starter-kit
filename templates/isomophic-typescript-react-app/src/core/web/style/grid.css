@@ -1,5 +1,21 @@
+@-webkit-viewport {
+  width: device-width;
+}
+@-moz-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+
 .Grid--container {
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -11,7 +27,7 @@
 
 .Grid--row [class*="col"] {
   float: left;
-  margin: 0.5rem 2%;
+  margin: 2rem 1%;
   min-height: 0.125rem;
 }
 
@@ -27,55 +43,55 @@
 .Grid--col-10,
 .Grid--col-11,
 .Grid--col-12 {
-  width: 96%;
+  width: 100%;
 }
 
 .Grid--col-1-sm {
-  width: 4.33%;
+  width: 4.83%;
 }
 
 .Grid--col-2-sm {
-  width: 12.66%;
+  width: 13.16%;
 }
 
 .Grid--col-3-sm {
-  width: 21%;
+  width: 23%;
 }
 
 .Grid--col-4-sm {
-  width: 29.33%;
+  width: 29.83%;
 }
 
 .Grid--col-5-sm {
-  width: 37.66%;
+  width: 38.16%;
 }
 
 .Grid--col-6-sm {
-  width: 46%;
+  width: 46.5%;
 }
 
 .Grid--col-7-sm {
-  width: 54.33%;
+  width: 54.83%;
 }
 
 .Grid--col-8-sm {
-  width: 62.66%;
+  width: 63.16%;
 }
 
 .Grid--col-9-sm {
-  width: 71%;
+  width: 71.5%;
 }
 
 .Grid--col-10-sm {
-  width: 79.33%;
+  width: 79.83%;
 }
 
 .Grid--col-11-sm {
-  width: 87.66%;
+  width: 88.16%;
 }
 
 .Grid--col-12-sm {
-  width: 96%;
+  width: 96.5%;
 }
 
 .Grid--row::after {
@@ -89,55 +105,55 @@
 }
 
 @media (--viewport-tablet) { 
-  .Grid--col-1 {
-    width: 4.33%;
+  .Grid--col-1  {
+    width: 4.83%;
+  }
+  
+  .Grid--col-2  {
+    width: 13.16%;
+  }
+  
+  .Grid--col-3  {
+    width: 23%;
+  }
+  
+  .Grid--col-4  {
+    width: 29.83%;
+  }
+  
+  .Grid--col-5  {
+    width: 38.16%;
+  }
+  
+  .Grid--col-6  {
+    width: 46.5%;
+  }
+  
+  .Grid--col-7  {
+    width: 54.83%;
+  }
+  
+  .Grid--col-8  {
+    width: 63.16%;
+  }
+  
+  .Grid--col-9  {
+    width: 71.5%;
+  }
+  
+  .Grid--col-10  {
+    width: 79.83%;
+  }
+  
+  .Grid--col-11  {
+    width: 88.16%;
+  }
+  
+  .Grid--col-12  {
+    width: 96.5%;
   }
 
-  .Grid--col-2 {
-    width: 12.66%;
-  }
-
-  .Grid--col-3 {
-    width: 21%;
-  }
-
-  .Grid--col-4 {
-    width: 29.33%;
-  }
-
-  .Grid--col-5 {
-    width: 37.66%;
-  }
-
-  .Grid--col-6 {
-    width: 46%;
-  }
-
-  .Grid--col-7 {
-    width: 54.33%;
-  }
-
-  .Grid--col-8 {
-    width: 62.66%;
-  }
-
-  .Grid--col-9 {
-    width: 71%;
-  }
-
-  .Grid--col-10 {
-    width: 79.33%;
-  }
-
-  .Grid--col-11 {
-    width: 87.66%;
-  }
-
-  .Grid--col-12 {
-    width: 96%;
-  }
-
-  .Grid--hidden-sm {
+  .Grid--hidden {
     display: block;
   }
 

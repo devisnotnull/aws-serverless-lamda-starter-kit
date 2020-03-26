@@ -17,6 +17,6 @@ const headerSize = (size: Sizes, children: React.ReactNode) => {
     }
 }
 
-export const HeadingOne: React.FC<IHeadingProps> = ({ children, size }) => headerSize(size, children);
+export const Heading: React.FC<IHeadingProps> = ({ children, size }) => headerSize(size, children);
 
-export default HeadingOne
+export default Heading

@@ -1,19 +1,18 @@
 .Button {
-
 }
 
-.Button--Default {
-  background-color: var(background-color);
+.Button--default {
+  background-color: var(--button-default);
 }
 
-.Button--Primary {
-  background-color: var(background-color);
+.Button--primary {
+  background-color: var(--button-primary);
 }
 
-.Button--Secondary {
-  background-color: var(grey);
+.Button--secondary {
+  background-color: var(--button-secondary);
 }
 
-.Button--Alert {
-  background-color: var(red);
+.Button--alert {
+  background-color: var(--button-alert);
 }

@@ -3,12 +3,15 @@ import { networkReducer } from 'redux-saga-requests'
 import { routerReducer } from 'react-router-redux'
 
 import { IState } from './state'
-import optionGroups from './optionGroup/reducer'
+import post from './post/reducer'
 import layout from './layout/reducer'
+import config from './config/reducer'
 
 export default combineReducers<IState>({
-    optionGroups,
     layout,
+    config,
+    post,
+    //
     network: routerReducer,
     router: networkReducer({}),
 })

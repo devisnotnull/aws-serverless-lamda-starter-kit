@@ -26,6 +26,7 @@ declare const styles: {
   readonly "Grid--col-11-sm": string;
   readonly "Grid--col-12-sm": string;
   readonly "Grid--hidden-sm": string;
+  readonly "Grid--hidden": string;
 };
 export = styles;
 

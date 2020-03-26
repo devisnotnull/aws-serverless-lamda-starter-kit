@@ -11,9 +11,20 @@ export const layoutReducer: Reducer<ILayoutState> = (
         case LayoutActionTypes.UPDATE_BREADCRUM: {
             return { ...state, breadcrumb: action.payload }
         }
-        case LayoutActionTypes.TOGGLE_MODAL: {
-            return { ...state, isModalVisible: !state.isModalVisible }
-        }
+        case LayoutActionTypes.SHOW_MODAL:
+            return {
+                ...state,
+                modal: {
+                    isVisible: true
+                }
+            };
+        case LayoutActionTypes.HIDE_MODAL:
+            return {
+                ...state,
+                modal: {
+                    isVisible: false
+                }
+            };
         default: {
             return state
         }

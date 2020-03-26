@@ -9,3 +9,4 @@ export enum GlobalActionTypes {
 export const fetchRequest = () => action(GlobalActionTypes.FETCH_START)
 export const fetchSuccess = () => action(GlobalActionTypes.FETCH_SUCCESS)
 export const fetchError = (message: string) => action(GlobalActionTypes.FETCH_ERROR, message)
+

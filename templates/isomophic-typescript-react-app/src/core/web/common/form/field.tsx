@@ -4,32 +4,20 @@ import * as React from 'react'
 type Editor = 'textbox' | 'multilinetextbox' | 'dropdown' | 'multilinefreeform'
 
 export interface IFieldProps {
-    // The unique field name */
     id: string
-    // The label text for the field */
     label?: string
-    // The label text for the field */
     type?: string
-    // The editor for the field */
     editor?: Editor
-    // The drop down items for the field */
     options?: string[]
-    // The field value */
     value?: any
-    //
     default?: any
-    // Is this field required
     required?: boolean
-    //
     hidden?: boolean
-    // Regex validation
     validationRegex?: string
-    // Update action
     updateAction?: (id: string, payload: string | number) => {}
 }
 
 export interface IFieldInternalProps {
-    /* The unique field name */
     multi: string[]
 }
 
