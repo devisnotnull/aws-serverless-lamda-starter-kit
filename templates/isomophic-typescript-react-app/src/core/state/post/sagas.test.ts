@@ -7,7 +7,8 @@ import {
     fetchByIdPostsSuccess,
 } from './actions';
 import { fetchAllSaga, fetchById, fetchAllStart, fetchByIdStart } from './sagas';
-import { fetch, IPayload } from '../utils';
+import { fetch } from '../utils';
+import { IPayload } from '../types';
 import { FetchAllAction, FetchByIdAction } from './types';
 import { IPostArrayResponsePayload, IPostSingularResponsePayload } from '@core/models/post';
 import { call } from 'redux-saga/effects';

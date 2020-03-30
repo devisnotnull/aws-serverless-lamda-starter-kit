@@ -2,11 +2,11 @@ import { fetchPostsByIdQuery, fetchPostsQuery, createPost } from './query';
 
 import {
     ActionTypes,
-    FETCH_ALL_START,
-    FETCH_BY_ID_START,
+    FETCH_ALL,
+    FETCH_BY_ID,
     CREATE_POST,
-    FETCH_ALL_START_SUCCESS,
-    FETCH_BY_ID_START_SUCCESS,
+    FETCH_ALL_SUCCESS,
+    FETCH_BY_ID_SUCCESS,
     CREATE_POST_SUCCESS,
 } from './types';
 
@@ -19,7 +19,7 @@ export const fetchAllPostsRequest = (
     page = DEFAULT_PAGE,
     limit = DEFAULT_PER_PAGE
 ): ActionTypes => ({
-    type: FETCH_ALL_START,
+    type: FETCH_ALL,
     request: {
         query: fetchPostsQuery,
         variables: {
@@ -31,14 +31,14 @@ export const fetchAllPostsRequest = (
 });
 
 export const fetchAllPostsSucess = (data: IPostArrayResponsePayload): ActionTypes => ({
-    type: FETCH_ALL_START_SUCCESS,
+    type: FETCH_ALL_SUCCESS,
     data,
 });
 
 //
 
 export const fetchByIdPostsRequest = (id: number): ActionTypes => ({
-    type: FETCH_BY_ID_START,
+    type: FETCH_BY_ID,
     request: {
         query: fetchPostsByIdQuery,
         variables: { id },
@@ -46,7 +46,7 @@ export const fetchByIdPostsRequest = (id: number): ActionTypes => ({
 });
 
 export const fetchByIdPostsSuccess = (data: IPostSingularResponsePayload): ActionTypes => ({
-    type: FETCH_BY_ID_START_SUCCESS,
+    type: FETCH_BY_ID_SUCCESS,
     data,
 });
 

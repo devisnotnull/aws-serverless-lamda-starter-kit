@@ -7,6 +7,7 @@ import { postSagas } from './post/sagas';
 
 export default function* rootSaga(config: Partial<IConfig>) {
     try {
+        yield all([postSagas()]);
         yield setContext({
             client: initializeApolloClient(
                 fetch,
@@ -14,8 +15,7 @@ export default function* rootSaga(config: Partial<IConfig>) {
                 !config.isBrowser ?? false,
                 false,
             ),
-        }),
-            yield all([postSagas()]);
+        });
     } catch (e) {
         console.error('We have encountered an error');
         console.error(e);

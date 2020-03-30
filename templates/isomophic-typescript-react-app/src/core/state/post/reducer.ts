@@ -3,12 +3,12 @@ import { UNABLE_TO_LOAD_ERROR } from '../consts';
 
 import {
     ActionTypes,
-    FETCH_ALL_START,
-    FETCH_ALL_START_SUCCESS,
-    FETCH_ALL_START_ERROR,
-    FETCH_BY_ID_START,
-    FETCH_BY_ID_START_SUCCESS,
-    FETCH_BY_ID_START_ERROR,
+    FETCH_ALL,
+    FETCH_ALL_SUCCESS,
+    FETCH_ALL_ERROR,
+    FETCH_BY_ID,
+    FETCH_BY_ID_SUCCESS,
+    FETCH_BY_ID_ERROR,
 } from './types';
 
 import { IPostState, initialState } from './state';
@@ -19,12 +19,12 @@ export const postReducers: Reducer<IPostState> = (
 ): IPostState => {
     switch (action.type) {
         //
-        // Base action: FETCH_ALL_START
+        // Base action: FETCH_ALL
         //
-        case FETCH_ALL_START: {
+        case FETCH_ALL: {
             return { ...state, loading: true, errors: undefined };
         }
-        case FETCH_ALL_START_SUCCESS: {
+        case FETCH_ALL_SUCCESS: {
             const payload = action.data?.posts ?? undefined;
             return {
                 ...state,
@@ -34,16 +34,16 @@ export const postReducers: Reducer<IPostState> = (
                 posts: payload?.data ?? [],
             };
         }
-        case FETCH_ALL_START_ERROR: {
+        case FETCH_ALL_ERROR: {
             return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
         //
         // Base action: FETCH_BY_ID
         //
-        case FETCH_BY_ID_START: {
+        case FETCH_BY_ID: {
             return { ...state, loading: true, errors: undefined };
         }
-        case FETCH_BY_ID_START_SUCCESS: {
+        case FETCH_BY_ID_SUCCESS: {
             const payload = action.data?.post ?? undefined;
             return {
                 ...state,
@@ -52,7 +52,7 @@ export const postReducers: Reducer<IPostState> = (
                 ...payload,
             };
         }
-        case FETCH_BY_ID_START_ERROR: {
+        case FETCH_BY_ID_ERROR: {
             return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
         //

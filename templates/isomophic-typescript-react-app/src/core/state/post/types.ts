@@ -25,39 +25,39 @@ export const CREATE_POST_SUCCESS = '@post/CREATE_POST_SUCCESS';
 export const CREATE_POST_ERROR = '@post/CREATE_POST_ERROR';
 export const CREATE_POST_ABORT = '@post/CREATE_POST_ABORT';
 
-export const FETCH_ALL_START = '@post/FETCH_ALL_START';
-export const FETCH_ALL_START_SUCCESS = '@post/FETCH_ALL_START_SUCCESS';
-export const FETCH_ALL_START_ERROR = '@post/FETCH_ALL_START_ERROR';
-export const FETCH_ALL_START_ABORT = '@post/FETCH_ALL_START_ABORT';
+export const FETCH_ALL = '@post/FETCH_ALL';
+export const FETCH_ALL_SUCCESS = '@post/FETCH_ALL_SUCCESS';
+export const FETCH_ALL_ERROR = '@post/FETCH_ALL_ERROR';
+export const FETCH_ALL_ABORT = '@post/FETCH_ALL_ABORT';
 
-export const FETCH_BY_ID_START = '@post/FETCH_BY_ID_START';
-export const FETCH_BY_ID_START_SUCCESS = '@post/FETCH_BY_ID_START_SUCCESS';
-export const FETCH_BY_ID_START_ERROR = '@post/FETCH_BY_ID_START_ERROR';
-export const FETCH_BY_ID_START_ABORT = '@post/FETCH_BY_ID_START_ABORT';
+export const FETCH_BY_ID = '@post/FETCH_BY_ID';
+export const FETCH_BY_ID_SUCCESS = '@post/FETCH_BY_ID_SUCCESS';
+export const FETCH_BY_ID_ERROR = '@post/FETCH_BY_ID_ERROR';
+export const FETCH_BY_ID_ABORT = '@post/FETCH_BY_ID_ABORT';
 
 // You can use the provided IResponseAction or IRequestAction interface.
 // The first Type argument is the action
 // The second Type argument is the payload or request
 export type FetchAllAction = IRequestAction<
-    typeof FETCH_ALL_START,
+    typeof FETCH_ALL,
     IGraphqlQuery<IPageQueryOptionsInput>
 >;
 export type FetchAllSucessAction = IGraphqlResponseAction<
-    typeof FETCH_ALL_START_SUCCESS,
+    typeof FETCH_ALL_SUCCESS,
     IPostArrayResponsePayload
 >;
-export type FetchAllErrorAction = IGraphqlResponseAction<typeof FETCH_ALL_START_ERROR, any>;
+export type FetchAllErrorAction = IGraphqlResponseAction<typeof FETCH_ALL_ERROR, any>;
 export type FetchAllActionTypes = FetchAllAction | FetchAllSucessAction | FetchAllErrorAction;
 
 export type FetchByIdAction = IRequestAction<
-    typeof FETCH_BY_ID_START,
+    typeof FETCH_BY_ID,
     IGraphqlQuery<{ id: number }>
 >;
 export type FetchByIdSucessAction = IGraphqlResponseAction<
-    typeof FETCH_BY_ID_START_SUCCESS,
+    typeof FETCH_BY_ID_SUCCESS,
     IPostSingularResponsePayload
 >;
-export type FetchByIdErrorAction = IGraphqlResponseAction<typeof FETCH_BY_ID_START_ERROR, any>;
+export type FetchByIdErrorAction = IGraphqlResponseAction<typeof FETCH_BY_ID_ERROR, any>;
 export type FetchByIdActionTypes = FetchByIdAction | FetchByIdSucessAction | FetchByIdErrorAction;
 
 export type CreateAction = IRequestAction<typeof CREATE_POST, IGraphqlQuery<ICreatePostInput>>;

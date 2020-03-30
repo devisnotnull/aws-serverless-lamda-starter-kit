@@ -5,10 +5,10 @@ import {
     FetchAllAction,
     FetchByIdAction,
     FetchByIdSucessAction,
-    FETCH_ALL_START_SUCCESS,
-    FETCH_ALL_START,
-    FETCH_BY_ID_START,
-    FETCH_BY_ID_START_SUCCESS,
+    FETCH_ALL_SUCCESS,
+    FETCH_ALL,
+    FETCH_BY_ID,
+    FETCH_BY_ID_SUCCESS,
 } from './types';
 import { postReducers } from './reducer';
 
@@ -22,7 +22,7 @@ describe('post reducers: FETCH_ALL_*', () => {
     describe('action: FetchByIdAction', () => {
         it('reducer: FetchByIdAction', () => {
             const fetchAllSucessAction: FetchByIdAction = {
-                type: FETCH_BY_ID_START,
+                type: FETCH_BY_ID,
                 request: {
                     query: '',
                     variables: {
@@ -40,7 +40,7 @@ describe('post reducers: FETCH_ALL_*', () => {
     describe('action: FetchByIdSucessAction', () => {
         it('reducer: FetchByIdSucessAction', () => {
             const fetchAllSucessAction: FetchByIdSucessAction = {
-                type: FETCH_BY_ID_START_SUCCESS,
+                type: FETCH_BY_ID_SUCCESS,
                 data: {
                     post: undefined,
                 },
@@ -53,7 +53,7 @@ describe('post reducers: FETCH_ALL_*', () => {
 
         it('reducer: FetchAllSucessAction with empty non empty posts array', () => {
             const fetchAllSucessAction: FetchAllSucessAction = {
-                type: FETCH_ALL_START_SUCCESS,
+                type: FETCH_ALL_SUCCESS,
                 data: {
                     posts: {
                         data: [
@@ -83,7 +83,7 @@ describe('post reducers: FETCH_ALL_*', () => {
     describe('action: FetchAllAction', () => {
         it('reducer: FetchAllAction', () => {
             const fetchAllSucessAction: FetchAllAction = {
-                type: FETCH_ALL_START,
+                type: FETCH_ALL,
                 request: {
                     query: '',
                     variables: {
@@ -106,7 +106,7 @@ describe('post reducers: FETCH_ALL_*', () => {
     describe('action: FetchAllSucessAction', () => {
         it('reducer: FetchAllSucessAction with empty posts array', () => {
             const fetchAllSucessAction: FetchAllSucessAction = {
-                type: FETCH_ALL_START_SUCCESS,
+                type: FETCH_ALL_SUCCESS,
                 data: {
                     posts: {
                         data: [],
@@ -122,7 +122,7 @@ describe('post reducers: FETCH_ALL_*', () => {
 
         it('reducer: FetchAllSucessAction with empty non empty posts array', () => {
             const fetchAllSucessAction: FetchAllSucessAction = {
-                type: FETCH_ALL_START_SUCCESS,
+                type: FETCH_ALL_SUCCESS,
                 data: {
                     posts: {
                         data: [

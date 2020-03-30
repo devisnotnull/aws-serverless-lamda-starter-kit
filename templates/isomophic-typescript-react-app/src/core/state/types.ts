@@ -1,5 +1,14 @@
 import { DocumentNode } from 'graphql';
 
+import { CallEffect, PutEffect } from "redux-saga/effects";
+import { ActionTypes } from "./post/types";
+
+export interface IPayload<T> {
+    data: T;
+}
+
+export type GraphQlGeneratorReturnType<T> = Generator<CallEffect<IPayload<unknown>> | PutEffect<ActionTypes>, void, IPayload<T>>;
+
 export interface IRequestAction<T, V> {
     type: T;
     request: V;

@@ -1,5 +1,6 @@
 import { put, all, takeEvery, call } from 'redux-saga/effects';
-import { success } from 'redux-saga-requests';
+
+import { IPostSingularResponsePayload, IPostArrayResponsePayload } from '@core/models/post';
 
 import {
     fetchAllPostsRequest,
@@ -8,15 +9,15 @@ import {
     fetchByIdPostsSuccess,
 } from './actions';
 
-import { IPostSingularResponsePayload, IPostArrayResponsePayload } from '@core/models/post';
-import { fetch, IPayload, GraphQlGeneratorReturnType } from '../utils';
-import { CREATE_POST, FETCH_ALL_START, FetchAllAction, FetchByIdAction } from './types';
+import { IPayload, GraphQlGeneratorReturnType } from '../types';
+import { fetch } from '../utils';
+import { CREATE_POST, FETCH_ALL, FETCH_BY_ID, FetchAllAction, FetchByIdAction } from './types';
 
 // Saga calls to apollo
 
 export function* fetchAllStart({
     request: { query, variables },
-}: FetchAllAction): GraphQlGeneratorReturnType<IPayload<IPostArrayResponsePayload>> {
+}: FetchAllAction): GraphQlGeneratorReturnType<IPostArrayResponsePayload> {
     try {
         const data: IPayload<IPostArrayResponsePayload> = yield call(fetch, query, variables);
         yield put(fetchAllPostsSucess(data.data));
@@ -27,7 +28,7 @@ export function* fetchAllStart({
 
 export function* fetchByIdStart({
     request: { query, variables },
-}: FetchByIdAction): GraphQlGeneratorReturnType<IPayload<IPostSingularResponsePayload>> {
+}: FetchByIdAction): GraphQlGeneratorReturnType<IPostSingularResponsePayload> {
     try {
         const data: IPayload<IPostSingularResponsePayload> = yield call(fetch, query, variables);
         yield put(fetchByIdPostsSuccess(data.data));
@@ -50,7 +51,8 @@ export function* fetchById(id: number) {
 
 export function* postSagas() {
     yield all([
-        takeEvery(FETCH_ALL_START, fetchAllStart),
-        takeEvery(success(CREATE_POST), fetchAllSaga),
+        takeEvery(FETCH_ALL, fetchAllStart),
+        takeEvery(FETCH_BY_ID, fetchByIdStart),
+        takeEvery(CREATE_POST, fetchAllSaga),
     ]);
 }
