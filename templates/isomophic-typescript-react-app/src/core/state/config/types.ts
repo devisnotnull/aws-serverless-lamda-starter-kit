@@ -1,4 +1,4 @@
-import { IResponseAction } from '../utils';
+import { IResponseAction } from '../types';
 
 export const TOGGLE_FEATURE = '@config/TOGGLE_FEATURE';
 

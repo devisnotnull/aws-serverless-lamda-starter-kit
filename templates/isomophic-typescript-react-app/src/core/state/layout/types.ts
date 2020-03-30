@@ -1,4 +1,4 @@
-import { IResponseAction } from '../utils';
+import { IResponseAction } from '../types';
 
 export const SHOW_MODAL = '@layout/SHOW_MODAL';
 export const HIDE_MODAL = '@layout/HIDE_MODAL';

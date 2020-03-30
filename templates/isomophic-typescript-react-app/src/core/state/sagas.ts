@@ -1,40 +1,17 @@
-import { createRequestInstance, watchRequests } from 'redux-saga-requests';
-import { createDriver } from 'redux-saga-requests-graphql';
-import { all } from 'redux-saga/effects';
+import { all, setContext } from 'redux-saga/effects';
+import fetch from 'isomorphic-fetch';
 
-import { IAppConfig } from '../models/config';
+import { IConfig } from '../models/config';
 import { postSagas } from './post/sagas';
+import { initializeApolloClient } from './apollo';
 
-function* onRequestSaga(request: unknown, action: unknown) {
-    console.log('action', action);
-    return request;
-}
 
-function* onSuccessSaga(response: unknown, action: unknown) {
-    return response;
-}
-
-function* onErrorSaga(error: unknown, action: unknown) {
-    console.error('There has been an action error, ', error);
-    console.error('Failed action, ', action);
-    return { error };
-}
-
-function* onAbortSaga(action: unknown) {
-    console.error('Action has been aborted');
-}
-
-export default function* rootSaga(config: Partial<IAppConfig>) {
+export default function* rootSaga(config: Partial<IConfig>) {
     try {
+        yield setContext({ 
+            client: initializeApolloClient(fetch, config?.graphql ?? '', !config.isBrowser ?? false, false) 
+        }),
         yield all([
-            createRequestInstance({
-                driver: createDriver({ url: config?.graphql ?? '' }),
-                onAbort: onAbortSaga,
-                onError: onErrorSaga,
-                onRequest: onRequestSaga,
-                onSuccess: onSuccessSaga,
-            }),
-            watchRequests(),
             postSagas(),
         ]);
     } catch (e) {

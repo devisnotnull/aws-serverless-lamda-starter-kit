@@ -1,10 +1,10 @@
 import { merge } from 'ramda';
-import { IAppConfig } from '@core/models/config';
+import { IConfig } from '@core/models/config';
 
 export type Environment = 'common' | 'development' | 'production';
 
 type Config = {
-    [key in Environment]: Partial<IAppConfig>;
+    [key in Environment]: Partial<IConfig>;
 };
 
 const env = process.env.NODE_ENV || 'development';
@@ -18,7 +18,7 @@ const defaultConfig: Config = {
     production: {},
 };
 
-export const config: Partial<IAppConfig> = merge<Partial<IAppConfig>, Partial<IAppConfig>>(
+export const config: Partial<IConfig> = merge<Partial<IConfig>, Partial<IConfig>>(
     defaultConfig.common,
     defaultConfig[env]
 );

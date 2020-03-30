@@ -1,5 +1,3 @@
-import { gql } from 'redux-saga-requests-graphql';
-
 // Graphql input interfaces
 export interface IPageQueryOptionsInput {
     options: {
@@ -19,7 +17,7 @@ export interface ICreatePostInput {
 }
 
 // GraphQL queries
-export const fetchPostsQuery = gql`
+export const fetchPostsQuery = `
     query($options: PageQueryOptions!) {
         posts(options: $options) {
             data {
@@ -33,7 +31,7 @@ export const fetchPostsQuery = gql`
     }
 `;
 
-export const fetchPostsByIdQuery = gql`
+export const fetchPostsByIdQuery = `
     query($id: ID!) {
         post(id: $id) {
             id
@@ -43,18 +41,12 @@ export const fetchPostsByIdQuery = gql`
     }
 `;
 
-export const createPost = gql`
+export const createPost = `
     mutation($input: CreatePostInput!) {
         createPost(input: $input) {
             id
             title
             body
         }
-    }
-`;
-
-export const deletePost = gql`
-    mutation($id: ID!) {
-        deletePost(id: $id)
     }
 `;

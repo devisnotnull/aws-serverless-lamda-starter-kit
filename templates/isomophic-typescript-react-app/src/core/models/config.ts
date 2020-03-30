@@ -1,4 +1,4 @@
-export interface IAppConfig {
+export interface IConfig {
     env: string;
     isDev: boolean;
     useRender: boolean;

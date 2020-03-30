@@ -1,10 +1,12 @@
+import { DocumentNode } from "graphql";
+
 export interface IRequestAction<T, V> {
     type: T;
     request: V;
 }
 
 export interface IGraphqlQuery<V> {
-    query: string;
+    query: string | DocumentNode;
     variables: V;
 }
 

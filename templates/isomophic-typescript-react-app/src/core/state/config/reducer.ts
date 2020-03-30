@@ -1,9 +1,9 @@
 import { Reducer, AnyAction } from 'redux';
 
-import { IIAppConfigState, initialState } from './state';
+import { IAppConfig, initialState } from './state';
 
-export const configReducer: Reducer<IIAppConfigState> = (
-    state: IIAppConfigState = initialState,
+export const configReducer: Reducer<IAppConfig> = (
+    state: IAppConfig = initialState,
     action: AnyAction
 ) => {
     switch (action.type) {

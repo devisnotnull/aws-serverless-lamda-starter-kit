@@ -1,8 +1,11 @@
-import { fetchPostsByIdQuery, fetchPostsQuery, createPost, deletePost } from './query';
+import { fetchPostsByIdQuery, fetchPostsQuery, createPost } from './query';
 
-import { ActionTypes, FETCH_ALL_START, FETCH_BY_ID_START, CREATE_POST, DELETE_POST } from './types';
+import { ActionTypes, FETCH_ALL_START, FETCH_BY_ID_START, CREATE_POST, FETCH_ALL_START_SUCCESS, FETCH_BY_ID_START_SUCCESS, CREATE_POST_SUCCESS } from './types';
 
 import { DEFAULT_PAGE, DEFAULT_PER_PAGE } from './const';
+import { IPostArrayResponsePayload, IPostSingularResponsePayload } from '@core/models/post';
+
+//
 
 export const fetchAllPostsRequest = (
     page = DEFAULT_PAGE,
@@ -19,6 +22,13 @@ export const fetchAllPostsRequest = (
     },
 });
 
+export const fetchAllPostsSucess = (data: IPostArrayResponsePayload): ActionTypes => ({
+    type: FETCH_ALL_START_SUCCESS,
+    data
+});
+
+//
+
 export const fetchByIdPostsRequest = (id: number): ActionTypes => ({
     type: FETCH_BY_ID_START,
     request: {
@@ -26,6 +36,13 @@ export const fetchByIdPostsRequest = (id: number): ActionTypes => ({
         variables: { id },
     },
 });
+
+export const fetchByIdPostsSuccess = (data: IPostSingularResponsePayload): ActionTypes => ({
+    type: FETCH_BY_ID_START_SUCCESS,
+    data
+});
+
+//
 
 export const createPostsRequest = (postInput: any): ActionTypes => ({
     type: CREATE_POST,
@@ -37,12 +54,7 @@ export const createPostsRequest = (postInput: any): ActionTypes => ({
     },
 });
 
-export const deletePostRequest = (postId: number): ActionTypes => ({
-    type: DELETE_POST,
-    request: {
-        query: deletePost,
-        variables: {
-            id: postId,
-        },
-    },
+export const createPostsRequestSuccess = (data: IPostSingularResponsePayload): ActionTypes => ({
+    type: CREATE_POST_SUCCESS,
+    data
 });

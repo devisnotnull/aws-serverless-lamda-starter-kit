@@ -9,7 +9,7 @@ import { Request, Response } from 'express';
 import { existsSync, readFileSync } from 'fs';
 
 import { config } from '@config/index';
-import { IAppConfig } from '@core/models/config';
+import { IConfig } from '@core/models/config';
 import createStore from '@core/state/store';
 import rootSaga from '@core/state/sagas';
 import App from '@core/web/app';
@@ -40,7 +40,7 @@ const renderApp = (
     url: string,
     res: Response,
     store: Store,
-    appConfiguration: Partial<IAppConfig>
+    appConfiguration: Partial<IConfig>
 ): string => {
     const response: string = '';
     const PROD = process.env.NODE_ENV === 'production';
@@ -91,6 +91,6 @@ const renderApp = (
 export const renderPageExpress = (req: Request, res: Response): string => {
     const history = createHistory();
     const store = createStore(history);
-    const appConfiguration: Partial<IAppConfig> = config;
+    const appConfiguration: Partial<IConfig> = config;
     return renderApp(req.url, res, store, appConfiguration);
 };

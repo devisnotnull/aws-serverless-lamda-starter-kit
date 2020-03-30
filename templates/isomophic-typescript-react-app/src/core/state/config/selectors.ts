@@ -1,6 +1,6 @@
 import { prop } from 'ramda';
 
-import { IIAppConfigState } from './state';
+import { IAppConfig } from './state';
 import { IState } from '../state';
 
-export const getConfig = (state: IState): IIAppConfigState => prop('config', state);
+export const getConfig = (state: IState): IAppConfig => prop('config', state);

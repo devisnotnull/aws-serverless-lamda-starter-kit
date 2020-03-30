@@ -5,12 +5,10 @@ import {
     ActionTypes,
     FETCH_ALL_START,
     FETCH_ALL_START_SUCCESS,
-    FETCH_ALL_START_ABORT,
     FETCH_ALL_START_ERROR,
     FETCH_BY_ID_START,
     FETCH_BY_ID_START_SUCCESS,
     FETCH_BY_ID_START_ERROR,
-    FETCH_BY_ID_START_ABORT,
 } from './types';
 
 import { IPostState, initialState } from './state';
@@ -39,9 +37,6 @@ export const postReducers: Reducer<IPostState> = (
         case FETCH_ALL_START_ERROR: {
             return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
-        case FETCH_ALL_START_ABORT: {
-            return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
-        }
         //
         // Base action: FETCH_BY_ID
         //
@@ -58,9 +53,6 @@ export const postReducers: Reducer<IPostState> = (
             };
         }
         case FETCH_BY_ID_START_ERROR: {
-            return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
-        }
-        case FETCH_BY_ID_START_ABORT: {
             return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
         //
