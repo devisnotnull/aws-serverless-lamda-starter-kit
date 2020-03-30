@@ -1,17 +1,17 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 
-import classnames from 'classnames'
+import classnames from 'classnames';
 
-import * as styles from '../../style/common.css'
+import * as styles from '../../style/common.css';
 
-type StateProps = {}
-type ActionProps = {}
-type SelectorProps = {}
+type StateProps = {};
+type ActionProps = {};
+type SelectorProps = {};
 
-type DefaultProps = {}
+type DefaultProps = {};
 
-type Props = StateProps & ActionProps & SelectorProps & DefaultProps
+type Props = StateProps & ActionProps & SelectorProps & DefaultProps;
 
 export class NotFoundView extends React.Component<Props> {
     render() {
@@ -19,10 +19,10 @@ export class NotFoundView extends React.Component<Props> {
             <div className={classnames(styles['Align--Center'], styles['Container--Large'])}>
                 <h1>Not found view</h1>
             </div>
-        )
+        );
     }
 }
 
-const mapStateToProps = (state: {}) => ({})
+const mapStateToProps = (state: {}) => ({});
 
-export default connect(mapStateToProps, {})(NotFoundView)
+export default connect(mapStateToProps, {})(NotFoundView);

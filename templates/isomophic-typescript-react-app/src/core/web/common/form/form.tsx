@@ -1,45 +1,44 @@
-import * as React from 'react'
+import * as React from 'react';
 
 import { IFormProps } from './form.props';
 import { IErrors, IValues, IFormState } from './form.state';
 
-
 export class Form extends React.Component<IFormProps, IFormState> {
     constructor(props: IFormProps) {
-        super(props)
+        super(props);
 
-        const errors: IErrors = {}
-        const values: IValues = {}
+        const errors: IErrors = {};
+        const values: IValues = {};
         this.state = {
             errors,
             values,
-        }
+        };
 
-        this.onFormUpdate = this.onFormUpdate.bind(this)
+        this.onFormUpdate = this.onFormUpdate.bind(this);
     }
 
     public onFormUpdate(id: string, payload: any) {
-        const values = this.state.values
-        values[id] = payload
+        const values = this.state.values;
+        values[id] = payload;
         this.setState({
             values: values,
-        })
+        });
     }
 
     render() {
-        const { submitSuccess, errors } = this.state
+        const { submitSuccess, errors } = this.state;
 
-        const { action } = this.props
+        const { action } = this.props;
 
-        let newChildren: any[] = []
+        let newChildren: any[] = [];
 
         if (Array.isArray(this.props.children)) {
-            newChildren = this.props.children.map(child => {
+            newChildren = this.props.children.map((child) => {
                 const extendedChild = React.cloneElement(child as React.ReactElement<any>, {
                     updateAction: this.onFormUpdate,
-                })
-                return extendedChild
-            })
+                });
+                return extendedChild;
+            });
         }
 
         return (
@@ -76,20 +75,20 @@ export class Form extends React.Component<IFormProps, IFormState> {
                     )}
                 </div>
             </form>
-        )
+        );
     }
 
     private haveErrors(errors: IErrors) {
-        let haveError: boolean = false
+        let haveError: boolean = false;
         Object.keys(errors).map((key: string) => {
             if (errors[key].length > 0) {
-                haveError = true
+                haveError = true;
             }
-        })
-        return haveError
+        });
+        return haveError;
     }
 
     private handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-        e.preventDefault()
-    }
+        e.preventDefault();
+    };
 }

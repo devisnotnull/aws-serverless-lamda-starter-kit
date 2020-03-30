@@ -1,13 +1,21 @@
-import { RouterState } from 'react-router-redux'
+import { RouterState } from 'react-router-redux';
 
-import { IAppConfigState  } from './config/state';
-import { IPostState } from './post/state'
-import { ILayoutState } from './layout/state'
+import { IIAppConfigState, initialState as configInitialState } from './config/state';
+import { ILayoutState, initialState as layoutInitialState } from './layout/state';
+import { initialState as postInitialState, IPostState } from './post/state';
 
 export interface IState {
-    config: IAppConfigState,
-    post: IPostState
-    layout: ILayoutState
-    router: RouterState
-    network: any
+    config: IIAppConfigState;
+    post: IPostState;
+    layout: ILayoutState;
+    router: RouterState | undefined;
+    network: any;
 }
+
+export const initialState: IState = {
+    config: configInitialState,
+    layout: layoutInitialState,
+    network: {},
+    post: postInitialState,
+    router: undefined,
+};

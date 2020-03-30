@@ -1,6 +1,6 @@
-import { Field } from './field'
+import { Field } from './field';
 
 export interface IFormProps {
-    action: Function
-    children?: React.ReactElement<Field>[] | React.ReactElement<Field>[]
+    action: Function;
+    children?: React.ReactElement<Field>[] | React.ReactElement<Field>[];
 }

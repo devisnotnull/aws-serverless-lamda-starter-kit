@@ -1,12 +1,16 @@
-import { prop, pipe, propOr } from 'ramda'
+import { pipe } from 'ramda';
 
-import { IPostState } from './state'
-import { IState } from '../state'
+import { IPostState } from './state';
+import { IState } from '../state';
 
-export const getPosts = (state: IState): IPostState => state?.post ?? {}
+export const getPosts = (state: IState): IPostState => state.post;
 
-export const getPostsItems = pipe(getPosts, prop('data'))
+export const postsItem = (state: IPostState) => state?.post;
+export const postsItems = (state: IPostState) => state?.posts;
+export const postsLoading = (state: IPostState) => state?.loading;
+export const postsItemsErrors = (state: IPostState) => state?.errors;
 
-export const getPostsLoading = pipe(getPosts, prop('loading'))
-
-export const getPostsItemsErrors = pipe(getPosts, propOr(undefined, 'errors'))
+export const getPostItem = pipe(getPosts, postsItem);
+export const getPostsItems = pipe(getPosts, postsItems);
+export const getPostsLoading = pipe(getPosts, postsLoading);
+export const getPostsItemsErrors = pipe(getPosts, postsItemsErrors);

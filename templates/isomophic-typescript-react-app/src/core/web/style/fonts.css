@@ -3,7 +3,8 @@
 @import url('https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhpKKSTjw.woff2');
 
 :root {
-    --base-font-famiy: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen","Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --base-font-famiy: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     --base-font-weight: 100;
     --base-font-size: 10px;
     --base-container-font-size: 10px;
@@ -43,6 +44,6 @@ a {
 }
 
 p {
-  font-size: 1.4rem;
-  line-height: var(--default-line-heigh);
+    font-size: 1.4rem;
+    line-height: var(--default-line-heigh);
 }

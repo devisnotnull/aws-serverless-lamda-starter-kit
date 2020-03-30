@@ -1,12 +1,10 @@
-/**
-All of these could be replaced with a JSON overide.
-**/
-@import url('grid.css');
+@import url('breakpoint.css');
 @import url('colours.css');
 @import url('input.css');
 @import url('fonts.css');
-@import url('breakpoint.css');
+@import url('animation.css');
 @import url('common.css');
+@import url('grid.css');
 
 :root {
     --base-pad: 1rem;
@@ -30,6 +28,6 @@ html {
     font-family: var(--base-font-famiy);
     background-color: var(--base-background-colour);
     font-weight: 100;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

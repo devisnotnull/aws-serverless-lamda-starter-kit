@@ -1,5 +1,5 @@
 .Align--Center {
-  margin: 0 auto;
+    margin: 0 auto;
 }
 
 .Container {
@@ -9,20 +9,20 @@
 }
 
 .Block {
-  border-bottom: 2px solid var(--base-background-colour);
-  margin-bottom: 2rem;
+    border-bottom: 2px solid var(--base-background-colour);
+    margin-bottom: 2rem;
 }
 
 .Block:after {
-  width: 100%;
-  height: 0.3rrem;
-  background: #ddd;
-  opacity: 0.5;
-  margin-top: 1.5rrem;
-  content: '';
-  display: block;
+    width: 100%;
+    height: 0.3rrem;
+    background: #ddd;
+    opacity: 0.5;
+    margin-top: 1.5rrem;
+    content: '';
+    display: block;
 }
 
 .Clearfix {
-  clear: both;
+    clear: both;
 }

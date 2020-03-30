@@ -1,68 +1,68 @@
+.Modal--hidden {
+    display: none;
+    animation: fadeOut 1s;
+}
+
 .Modal--visible {
-  display: block;
+    display: block;
+    animation: fadeIn 1s;
 }
 
 .Modal--overlay {
-  position: absolute;
-  z-index: 998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  opacity: 0.2;
-  display: none;
+    position: absolute;
+    z-index: 998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.2;
 }
 
 .Modal--content {
-  bottom: 0;
-  z-index: 999;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  background: white;
-  right: 0;
-  top: 0; 
-  height: 100%;
-  width: 100%;
-  display: none;
+    bottom: 0;
+    z-index: 999;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    background: white;
+    right: 0;
+    top: 0;
 }
 
 .Modal--header {
-  font-weight: bold;
-  padding: 2rem;
+    font-weight: bold;
+    padding: 2rem;
 }
 
-@media (--viewport-tablet) { 
+@media (--viewport-tablet) {
+    .Modal--content {
+        height: 50%;
+        width: 50%;
+    }
 
-  .Modal--content {
-    height: 50%;
-    width: 50%;
-  }
+    .Modal--size-small {
+        height: 30%;
+        width: 30%;
+    }
 
-  .Modal--size-small {
-    height: 30%;
-    width: 30%;
-  }
+    .Modal--size-medium {
+        height: 50%;
+        width: 50%;
+    }
 
-  .Modal--size-medium {
-    height: 50%;
-    width: 50%;
-  }
+    .Modal--size-large {
+        height: 70%;
+        width: 70%;
+    }
 
-  .Modal--size-large {
-    height: 70%;
-    width: 70%;
-  }
+    .Modal--size-xlarge {
+        height: 85%;
+        width: 85%;
+    }
 
-  .Modal--size-xlarge {
-    height: 85%;
-    width: 85%;
-  }
-
-  .Modal--size-full {
-    height: 100%;
-    width: 100%;
-  }
-  
+    .Modal--size-full {
+        height: 100%;
+        width: 100%;
+    }
 }

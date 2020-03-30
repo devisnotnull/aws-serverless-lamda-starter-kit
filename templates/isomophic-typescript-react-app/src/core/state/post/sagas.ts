@@ -1,20 +1,21 @@
-import { put, all, takeEvery } from 'redux-saga/effects'
-import { success } from 'redux-saga-requests'
+import { put, all, takeEvery } from 'redux-saga/effects';
+import { success } from 'redux-saga-requests';
 
-import { PostActionTypes, fetchAllPostsRequest } from './actions'
+import { CREATE_POST, DELETE_POST } from './types';
+import { fetchAllPostsRequest } from './actions';
 
-function* fetchAllSaga() {
-    yield put(fetchAllPostsRequest())
+export function* fetchAllSaga(page?: number, limit?: number) {
+    yield put(fetchAllPostsRequest(page, limit));
 }
 
 export function* postCreateSucess() {
-    yield takeEvery(success(PostActionTypes.CREATE_POST), fetchAllSaga)
+    yield takeEvery(success(CREATE_POST), fetchAllSaga);
 }
 
 export function* postDeleteSucess() {
-    yield takeEvery(success(PostActionTypes.DELETE_POST), fetchAllSaga)
+    yield takeEvery(success(DELETE_POST), fetchAllSaga);
 }
 
 export function* postSagas() {
-    yield all([postCreateSucess(), postDeleteSucess()])
+    yield all([postCreateSucess(), postDeleteSucess()]);
 }

@@ -1,11 +1,11 @@
 export type Sizes = 'xsmall' | 'small' | 'medium' | 'large';
 
 type IStateProps = {
-    size: Sizes
-}
+    size: Sizes;
+};
 
 type IActionProps = {
-    onHover?(): void
-}
+    onHover?(): void;
+};
 
-export type IHeadingProps = IStateProps & IActionProps
+export type IHeadingProps = IStateProps & IActionProps;

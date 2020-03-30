@@ -1,4 +1,3 @@
-
 # Introduction
 
 This is the react app for the new categorization engine, This is an true isomophic application.
@@ -52,7 +51,7 @@ yarn install --production=false
 Once you have installed all of the development dependencies you can build the final bundle.
 
 ```
-yarn build 
+yarn build
 # yarn build:client
 # yarn build:server
 ```
@@ -72,7 +71,7 @@ Warning: Please use `require("history").createMemoryHistory` instead of `require
 ✅ Listening on: localhost::3000
 ```
 
-# Building production bundle with docker 
+# Building production bundle with docker
 
 The application includes a pre-configured Dockerfile,
 
@@ -124,3 +123,4 @@ Now we should able to run our newly constructed container.
 
 ```
 docker run -p 3000:3000 -d pbx/relationship_engine:0.1
+```

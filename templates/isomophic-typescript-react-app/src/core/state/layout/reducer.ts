@@ -1,34 +1,32 @@
-import { Reducer, AnyAction } from 'redux'
+import { Reducer } from 'redux';
 
-import { ILayoutState, initialState } from './state'
-import { LayoutActionTypes } from './actions'
+import { ActionTypes, SHOW_MODAL, HIDE_MODAL } from './types';
+
+import { ILayoutState, initialState } from './state';
 
 export const layoutReducer: Reducer<ILayoutState> = (
     state: ILayoutState = initialState,
-    action: AnyAction
+    action: ActionTypes
 ) => {
     switch (action.type) {
-        case LayoutActionTypes.UPDATE_BREADCRUM: {
-            return { ...state, breadcrumb: action.payload }
-        }
-        case LayoutActionTypes.SHOW_MODAL:
+        case SHOW_MODAL:
             return {
                 ...state,
                 modal: {
-                    isVisible: true
-                }
+                    isVisible: true,
+                },
             };
-        case LayoutActionTypes.HIDE_MODAL:
+        case HIDE_MODAL:
             return {
                 ...state,
                 modal: {
-                    isVisible: false
-                }
+                    isVisible: false,
+                },
             };
         default: {
-            return state
+            return state;
         }
     }
-}
+};
 
-export default layoutReducer
+export default layoutReducer;

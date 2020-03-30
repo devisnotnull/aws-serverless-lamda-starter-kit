@@ -1,39 +1,32 @@
 {
-  "compilerOptions": {
-    "outDir": "dist",
-    "module": "commonjs",
-    "target": "es5",
-    "lib": ["dom", "es2018"],
-    "baseUrl": "src",
-    "paths": {
-      "@client/*": ["client/*"],
-      "@server/*": ["server/*"],
-      "@core/*": ["core/*"],
-      "@config/*": ["config/*"]
+    "compilerOptions": {
+        "outDir": "dist",
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["dom", "es2018"],
+        "baseUrl": "src",
+        "paths": {
+            "@client/*": ["client/*"],
+            "@server/*": ["server/*"],
+            "@core/*": ["core/*"],
+            "@config/*": ["config/*"],
+            "@models/*": ["models/*"]
+        },
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "allowJs": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": false,
+        "strictNullChecks": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noUnusedLocals": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "typeRoots": ["./typings", "node_modules/@types"]
     },
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "allowJs": true,
-    "jsx": "react",
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "typeRoots": [
-      "./typings",
-      "node_modules/@types"
-		]
-  },
-  "exclude": [
-    "node_modules",
-    "webpack", 
-    "typings",
-    "dist"
-  ]
+    "exclude": ["node_modules", "webpack", "typings", "dist", "jest"]
 }

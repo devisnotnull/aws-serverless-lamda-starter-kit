@@ -1,5 +1,7 @@
-export type IStateProps = {}
+export type IStateProps = {};
 
-export type IActionProps = {}
+export type IActionProps = {
+    showModal(): void;
+};
 
-export type IOptionGroupComponentProps = IStateProps & IActionProps
+export type IOptionGroupComponentProps = IStateProps & IActionProps;

@@ -1,11 +1,11 @@
 :root {
-  --base-background-colour: #ededed;
-  --font-colour: #363636;
-  --base-colour: #007377;
-  --error-colour: red;
+    --base-background-colour: #ededed;
+    --font-colour: #363636;
+    --base-colour: #007377;
+    --error-colour: red;
 
-  --button-primary: var(--base-colour);
-  --button-secondary: var(--font-colour);
-  --button-alert: var(--error-colour);
-  --button-default: var(--base-colour);
+    --button-primary: var(--base-colour);
+    --button-secondary: var(--font-colour);
+    --button-alert: var(--error-colour);
+    --button-default: var(--base-colour);
 }

@@ -1,53 +1,75 @@
-import { Reducer, AnyAction } from 'redux'
-import { success, error, abort } from 'redux-saga-requests'
+import { Reducer } from 'redux';
+import { UNABLE_TO_LOAD_ERROR } from '../consts';
 
-import { PostActionTypes } from './actions'
-import { IPostState, initialState } from './state'
+import {
+    ActionTypes,
+    FETCH_ALL_START,
+    FETCH_ALL_START_SUCCESS,
+    FETCH_ALL_START_ABORT,
+    FETCH_ALL_START_ERROR,
+    FETCH_BY_ID_START,
+    FETCH_BY_ID_START_SUCCESS,
+    FETCH_BY_ID_START_ERROR,
+    FETCH_BY_ID_START_ABORT,
+} from './types';
 
-export const postReducer: Reducer<IPostState> = (
+import { IPostState, initialState } from './state';
+
+export const postReducers: Reducer<IPostState> = (
     state: IPostState = initialState,
-    action: AnyAction
-) => {
+    action: ActionTypes
+): IPostState => {
     switch (action.type) {
-        case PostActionTypes.FETCH_ALL_START: {
-            return { ...state, loading: true, errors: undefined }
+        //
+        // Base action: FETCH_ALL_START
+        //
+        case FETCH_ALL_START: {
+            return { ...state, loading: true, errors: undefined };
         }
-        case success(PostActionTypes.FETCH_ALL_START): {
+        case FETCH_ALL_START_SUCCESS: {
+            const payload = action.data?.posts ?? undefined;
             return {
                 ...state,
                 loading: false,
-                errors: undefined,
-                total: action?.data?.meta?.totalCount ?? 0,
-                data: action?.data?.posts?.data ?? [],
-            }
+                errors: payload ? undefined : UNABLE_TO_LOAD_ERROR,
+                total: payload?.meta?.totalCount ?? 0,
+                posts: payload?.data ?? [],
+            };
         }
-        case error(PostActionTypes.FETCH_ALL_START): {
-            return { ...state, loading: false, errors: action.payload }
+        case FETCH_ALL_START_ERROR: {
+            return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
-        case abort(PostActionTypes.FETCH_ALL_START): {
-            return { ...state, loading: false, errors: action.payload }
+        case FETCH_ALL_START_ABORT: {
+            return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
-        case PostActionTypes.FETCH_BY_ID_START: {
-            return { ...state, loading: true, errors: undefined }
+        //
+        // Base action: FETCH_BY_ID
+        //
+        case FETCH_BY_ID_START: {
+            return { ...state, loading: true, errors: undefined };
         }
-        case success(PostActionTypes.FETCH_BY_ID_START): {
+        case FETCH_BY_ID_START_SUCCESS: {
+            const payload = action.data?.post ?? undefined;
             return {
                 ...state,
                 loading: false,
-                errors: undefined,
-                ...action.data,
-            }
+                errors: payload ? undefined : UNABLE_TO_LOAD_ERROR,
+                ...payload,
+            };
         }
-        case error(PostActionTypes.FETCH_BY_ID_START): {
-            return { ...state, loading: false, errors: action.payload }
+        case FETCH_BY_ID_START_ERROR: {
+            return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
-        case abort(PostActionTypes.FETCH_BY_ID_START): {
-            return { ...state, loading: false, errors: action.payload }
+        case FETCH_BY_ID_START_ABORT: {
+            return { ...state, loading: false, errors: UNABLE_TO_LOAD_ERROR };
         }
+        //
+        //
+        //
         default: {
-            return state
+            return state;
         }
     }
-}
+};
 
-export default postReducer
+export default postReducers;

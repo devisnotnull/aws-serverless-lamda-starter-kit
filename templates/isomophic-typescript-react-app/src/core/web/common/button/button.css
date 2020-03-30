@@ -2,17 +2,17 @@
 }
 
 .Button--default {
-  background-color: var(--button-default);
+    background-color: var(--button-default);
 }
 
 .Button--primary {
-  background-color: var(--button-primary);
+    background-color: var(--button-primary);
 }
 
 .Button--secondary {
-  background-color: var(--button-secondary);
+    background-color: var(--button-secondary);
 }
 
 .Button--alert {
-  background-color: var(--button-alert);
+    background-color: var(--button-alert);
 }

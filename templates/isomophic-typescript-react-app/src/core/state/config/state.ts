@@ -1,9 +1,9 @@
-import { AppConfig } from "@core/models/config";
+import { IAppConfig } from '@core/models/config';
 
-export interface IAppConfigState {
-    config: Partial<AppConfig>
+export interface IIAppConfigState {
+    config: Partial<IAppConfig>;
 }
 
-export const initialState: IAppConfigState = {
+export const initialState: IIAppConfigState = {
     config: {},
-}
+};

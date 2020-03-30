@@ -1,12 +1,9 @@
-import { Action } from 'redux-actions'
+import { ActionTypes, TOGGLE_FEATURE } from './types';
 
-export enum LayoutActionTypes {
-    TOGGLE_FEATURE = '@config/TOGGLE_FEATURE',
-}
-
-export const toggleFeature = (toggle?: boolean): Action<boolean | undefined> => {
-    return {
-        type: LayoutActionTypes.TOGGLE_FEATURE,
-        payload: toggle,
-    }
-}
+export const toggleFeature = (feature: string, toggle: boolean): ActionTypes => ({
+    type: TOGGLE_FEATURE,
+    payload: {
+        feature,
+        toggle,
+    },
+});

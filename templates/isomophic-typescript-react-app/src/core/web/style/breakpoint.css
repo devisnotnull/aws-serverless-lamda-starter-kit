@@ -1,5 +1,5 @@
 :root {
-  --max-size: 130rem;
+    --max-size: 130rem;
 }
 
 @custom-media --viewport-desktop (min-width: 1000px);

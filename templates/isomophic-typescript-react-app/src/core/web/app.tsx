@@ -1,13 +1,13 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
-import Header from './containers/header/header'
+import Header from './components/header/header';
 
-import HomeViewContainer from './pages/home/home'
-import DemoViewContainer from './pages/demo/demo'
-import PostsContainer from './pages/posts/posts'
-import NotFoundComponent from './pages/notFound/notFound'
+import HomeViewContainer from './pages/home/home';
+import DemoViewContainer from './pages/demo/demo';
+import PostsContainer from './pages/posts/posts';
+import NotFoundComponent from './pages/notFound/notFound';
 
 import '@core/web/style/core.css';
 
@@ -15,7 +15,7 @@ interface StateProps {}
 interface ActionProps {}
 interface SelectorProps {}
 
-type Props = StateProps & ActionProps & SelectorProps
+type Props = StateProps & ActionProps & SelectorProps;
 
 class AppRouter extends React.Component<Props> {
     render() {
@@ -38,8 +38,8 @@ class AppRouter extends React.Component<Props> {
                     <Route component={NotFoundComponent} />
                 </Switch>
             </>
-        )
+        );
     }
 }
 
-export default AppRouter
+export default AppRouter;

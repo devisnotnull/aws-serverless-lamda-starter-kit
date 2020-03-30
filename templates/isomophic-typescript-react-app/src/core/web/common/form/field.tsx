@@ -1,50 +1,50 @@
-import * as React from 'react'
+import * as React from 'react';
 
 /* The available editors for the field */
-type Editor = 'textbox' | 'multilinetextbox' | 'dropdown' | 'multilinefreeform'
+type Editor = 'textbox' | 'multilinetextbox' | 'dropdown' | 'multilinefreeform';
 
 export interface IFieldProps {
-    id: string
-    label?: string
-    type?: string
-    editor?: Editor
-    options?: string[]
-    value?: any
-    default?: any
-    required?: boolean
-    hidden?: boolean
-    validationRegex?: string
-    updateAction?: (id: string, payload: string | number) => {}
+    id: string;
+    label?: string;
+    type?: string;
+    editor?: Editor;
+    options?: string[];
+    value?: any;
+    default?: any;
+    required?: boolean;
+    hidden?: boolean;
+    validationRegex?: string;
+    updateAction?: (id: string, payload: string | number) => {};
 }
 
 export interface IFieldInternalProps {
-    multi: string[]
+    multi: string[];
 }
 
 export class Field extends React.PureComponent<IFieldProps, IFieldInternalProps> {
     constructor(props: IFieldProps) {
-        super(props)
+        super(props);
         this.state = {
             multi: [],
-        }
-        const { id, value, updateAction } = this.props
-        if (updateAction) updateAction(id, value)
+        };
+        const { id, value, updateAction } = this.props;
+        if (updateAction) updateAction(id, value);
     }
 
     setFreeFormInput(state: string[]) {
-        this.setState({ multi: state })
+        this.setState({ multi: state });
     }
 
     formatType(value: string, type?: string): string | number {
-        if (type === 'number') return Number(value)
-        return value
+        if (type === 'number') return Number(value);
+        return value;
     }
 
     render() {
-        const { id, label, editor, value, options, updateAction, type, hidden } = this.props
+        const { id, label, editor, value, options, updateAction, type, hidden } = this.props;
 
-        if (updateAction) updateAction(id, value)
-        
+        if (updateAction) updateAction(id, value);
+
         return (
             <div className="form-group">
                 {label && !hidden && (
@@ -53,11 +53,10 @@ export class Field extends React.PureComponent<IFieldProps, IFieldInternalProps>
                     </div>
                 )}
 
-                        
                 {editor!.toLowerCase() === 'textbox' && (
                     <input
                         id={id}
-                        type={hidden ? "hidden" : "text"}
+                        type={hidden ? 'hidden' : 'text'}
                         value={value}
                         onChange={(e: React.FormEvent<HTMLInputElement>) =>
                             updateAction &&
@@ -105,7 +104,7 @@ export class Field extends React.PureComponent<IFieldProps, IFieldInternalProps>
                         className="form-control"
                     >
                         {options &&
-                            options.map(option => (
+                            options.map((option) => (
                                 <option key={option} value={option}>
                                     {option}
                                 </option>
@@ -120,19 +119,19 @@ export class Field extends React.PureComponent<IFieldProps, IFieldInternalProps>
                             hidden={hidden}
                             value={value}
                             onChange={(e: React.FormEvent<HTMLTextAreaElement>) => {
-                                this.setFreeFormInput(e.currentTarget.value.split(','))
+                                this.setFreeFormInput(e.currentTarget.value.split(','));
                                 updateAction &&
-                                    updateAction(id, this.formatType(e.currentTarget.value, type))
+                                    updateAction(id, this.formatType(e.currentTarget.value, type));
                             }}
                             onBlur={(e: React.FormEvent<HTMLTextAreaElement>) => console.info(e)}
                             className="form-control"
                         />
-                        {this.state.multi.map(item => (
+                        {this.state.multi.map((item) => (
                             <div>{item}</div>
                         ))}
                     </React.Fragment>
                 )}
             </div>
-        )
+        );
     }
 }

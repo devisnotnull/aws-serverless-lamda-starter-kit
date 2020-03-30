@@ -1,19 +1,31 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 
-import { Modal } from '@core/web/common/modal/modal'
+import ModalComponent from '../../common/modal/modal';
 
-import {
-    useModal,
-    useHideModal
-} from '@core/state/layout/hooks';
+import { IModalProps } from './modal.props';
+import { mapDispatchToProps, mapStateToProps } from './modal.state';
 
-export const ModalWrapper = () => {
-    const { modal } = useModal();
-    const { handleOnClose } = useHideModal();
-
+export const Modal: React.FC<IModalProps> = ({
+    rootElement,
+    topic,
+    payload,
+    hideModal,
+    isVisble,
+}) => {
+    const modalPortalContainer: HTMLElement | null = document.getElementById(
+        rootElement ?? 'modal-root'
+    );
+    if (!modalPortalContainer) return <React.Fragment />;
     return (
-        <Modal isVisible={modal.isVisible}>
-            <button onClick={() => handleOnClose()}>Close</button>
-        </Modal>
+        <React.Fragment>
+            {ReactDOM.createPortal(
+                <ModalComponent isVisible={isVisble} hideModal={hideModal} />,
+                modalPortalContainer
+            )}
+        </React.Fragment>
     );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

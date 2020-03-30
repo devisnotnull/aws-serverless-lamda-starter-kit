@@ -1,16 +1,19 @@
-import { IPost } from '../../models/post'
-import { ICommonPayload } from '../../models/common'
+import { IPost } from '@core/models/post';
 
-export interface IPostState extends ICommonPayload<IPost> {
-    readonly loading: boolean
-    readonly errors?: string
+export interface IPostState {
+    readonly loading: boolean;
+    readonly errors: string | undefined;
+    readonly total?: number;
+    readonly skip?: number;
+    readonly post: IPost | undefined;
+    readonly posts: IPost[];
 }
 
 export const initialState: IPostState = {
     total: 0,
     skip: 0,
-    limit: 0,
-    data: [],
+    post: undefined,
+    posts: [],
     errors: undefined,
     loading: false,
-}
+};
