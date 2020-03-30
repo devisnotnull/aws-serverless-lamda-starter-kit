@@ -1,66 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`post saga: delete saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
-Object {
-  "fork": Array [
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "args": Array [
-          "@post/DELETE_POST_SUCCESS",
-          "@@redux-saga-test-plan/json/function/fetchAllSaga",
-        ],
-        "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
-      },
-      "type": "FORK",
-    },
-  ],
-  "take": Array [
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "pattern": "@post/DELETE_POST_SUCCESS",
-      },
-      "type": "TAKE",
-    },
-  ],
-}
-`;
-
-exports[`post saga: delete saga: snapshot: fetchAllSaga with no page and limit params 2`] = `
-Object {
-  "fork": Array [
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "args": Array [
-          "@post/DELETE_POST_SUCCESS",
-          "@@redux-saga-test-plan/json/function/fetchAllSaga",
-        ],
-        "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
-      },
-      "type": "FORK",
-    },
-  ],
-  "take": Array [
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "pattern": "@post/DELETE_POST_SUCCESS",
-      },
-      "type": "TAKE",
-    },
-  ],
-}
-`;
-
-exports[`post saga: fetchall saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
+exports[`post saga: fetchAll saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
 Object {
   "put": Array [
     Object {
@@ -69,7 +9,8 @@ Object {
       "payload": Object {
         "action": Object {
           "request": Object {
-            "query": "query($options: PageQueryOptions!) {
+            "query": "
+    query($options: PageQueryOptions!) {
         posts(options: $options) {
             data {
                 id
@@ -79,7 +20,8 @@ Object {
                 totalCount
             }
         }
-    }",
+    }
+",
             "variables": Object {
               "options": Object {
                 "paginate": Object {
@@ -99,31 +41,161 @@ Object {
 }
 `;
 
-exports[`post saga: post saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
+exports[`post saga: fetchAllStart saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
 Object {
-  "fork": Array [
+  "call": Array [
     Object {
       "@@redux-saga/IO": true,
       "combinator": false,
       "payload": Object {
         "args": Array [
-          "@post/CREATE_POST_SUCCESS",
-          "@@redux-saga-test-plan/json/function/fetchAllSaga",
+          "
+    query($options: PageQueryOptions!) {
+        posts(options: $options) {
+            data {
+                id
+                title
+            }
+            meta {
+                totalCount
+            }
+        }
+    }
+",
+          Object {
+            "options": Object {
+              "paginate": Object {
+                "limit": 40,
+                "page": 1,
+              },
+            },
+          },
         ],
         "context": null,
-        "fn": "@@redux-saga-test-plan/json/function/takeEvery",
+        "fn": "@@redux-saga-test-plan/json/function/fetch",
       },
-      "type": "FORK",
+      "type": "CALL",
     },
-  ],
-  "take": Array [
     Object {
       "@@redux-saga/IO": true,
       "combinator": false,
       "payload": Object {
-        "pattern": "@post/CREATE_POST_SUCCESS",
+        "args": Array [
+          Object {
+            "next": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "return": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "throw": "@@redux-saga-test-plan/json/function/<anonymous>",
+          },
+          "@@redux-saga-test-plan/json/function/refineYieldedValue",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/sagaWrapper",
       },
-      "type": "TAKE",
+      "type": "CALL",
+    },
+  ],
+  "getContext": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": "client",
+      "type": "GET_CONTEXT",
+    },
+  ],
+}
+`;
+
+exports[`post saga: fetchById saga: snapshot: fetchById with param 1`] = `
+Object {
+  "put": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "action": Object {
+          "request": Object {
+            "query": "
+    query($id: ID!) {
+        post(id: $id) {
+            id
+            title
+            body
+        }
+    }
+",
+            "variables": Object {
+              "id": 1,
+            },
+          },
+          "type": "@post/FETCH_BY_ID_START",
+        },
+        "channel": undefined,
+      },
+      "type": "PUT",
+    },
+  ],
+}
+`;
+
+exports[`post saga: fetchByIdStart saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
+Object {
+  "call": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "args": Array [
+          "
+    query($options: PageQueryOptions!) {
+        posts(options: $options) {
+            data {
+                id
+                title
+            }
+            meta {
+                totalCount
+            }
+        }
+    }
+",
+          Object {
+            "options": Object {
+              "paginate": Object {
+                "limit": 40,
+                "page": 1,
+              },
+            },
+          },
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/fetch",
+      },
+      "type": "CALL",
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "args": Array [
+          Object {
+            "next": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "return": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "throw": "@@redux-saga-test-plan/json/function/<anonymous>",
+          },
+          "@@redux-saga-test-plan/json/function/refineYieldedValue",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/sagaWrapper",
+      },
+      "type": "CALL",
+    },
+  ],
+  "getContext": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": "client",
+      "type": "GET_CONTEXT",
     },
   ],
 }

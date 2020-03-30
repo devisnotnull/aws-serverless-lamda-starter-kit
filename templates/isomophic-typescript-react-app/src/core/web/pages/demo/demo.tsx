@@ -203,7 +203,6 @@ export const DemoView: React.FC<IOptionGroupComponentProps> = ({ showModal }) =>
             </Row>
         </Container>
     </>
-)
-
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(DemoView);

@@ -19,18 +19,16 @@ export interface ICreatePostInput {
     };
 }
 
-// Declare our action's
-// We use the library `redux-saga-requests` to automagically configure graphql here.
-// We declare our base action and then the success, error and abort actions.
+// Declare our actions
 export const CREATE_POST = '@post/CREATE_POST';
 export const CREATE_POST_SUCCESS = '@post/CREATE_POST_SUCCESS';
 export const CREATE_POST_ERROR = '@post/CREATE_POST_ERROR';
 export const CREATE_POST_ABORT = '@post/CREATE_POST_ABORT';
 
 export const FETCH_ALL_START = '@post/FETCH_ALL_START';
-export const FETCH_ALL_START_SUCCESS = '@post/FETCH_ALL_START_SUCCESS'; 
-export const FETCH_ALL_START_ERROR = '@post/FETCH_ALL_START_ERROR'; 
-export const FETCH_ALL_START_ABORT = '@post/FETCH_ALL_START_ABORT'; 
+export const FETCH_ALL_START_SUCCESS = '@post/FETCH_ALL_START_SUCCESS';
+export const FETCH_ALL_START_ERROR = '@post/FETCH_ALL_START_ERROR';
+export const FETCH_ALL_START_ABORT = '@post/FETCH_ALL_START_ABORT';
 
 export const FETCH_BY_ID_START = '@post/FETCH_BY_ID_START';
 export const FETCH_BY_ID_START_SUCCESS = '@post/FETCH_BY_ID_START_SUCCESS';
@@ -49,10 +47,7 @@ export type FetchAllSucessAction = IGraphqlResponseAction<
     IPostArrayResponsePayload
 >;
 export type FetchAllErrorAction = IGraphqlResponseAction<typeof FETCH_ALL_START_ERROR, any>;
-export type FetchAllActionTypes =
-    | FetchAllAction
-    | FetchAllSucessAction
-    | FetchAllErrorAction
+export type FetchAllActionTypes = FetchAllAction | FetchAllSucessAction | FetchAllErrorAction;
 
 export type FetchByIdAction = IRequestAction<
     typeof FETCH_BY_ID_START,
@@ -63,21 +58,11 @@ export type FetchByIdSucessAction = IGraphqlResponseAction<
     IPostSingularResponsePayload
 >;
 export type FetchByIdErrorAction = IGraphqlResponseAction<typeof FETCH_BY_ID_START_ERROR, any>;
-export type FetchByIdActionTypes =
-    | FetchByIdAction
-    | FetchByIdSucessAction
-    | FetchByIdErrorAction
+export type FetchByIdActionTypes = FetchByIdAction | FetchByIdSucessAction | FetchByIdErrorAction;
 
 export type CreateAction = IRequestAction<typeof CREATE_POST, IGraphqlQuery<ICreatePostInput>>;
 export type CreateActionSucessPayload = IGraphqlResponseAction<typeof CREATE_POST_SUCCESS, any>;
 export type CreateActionErrorPayload = IGraphqlResponseAction<typeof CREATE_POST_ERROR, any>;
-export type CreateActionTypes =
-    | CreateAction
-    | CreateActionSucessPayload
-    | CreateActionErrorPayload
+export type CreateActionTypes = CreateAction | CreateActionSucessPayload | CreateActionErrorPayload;
 
-export type ActionTypes =
-    | FetchAllActionTypes
-    | FetchByIdActionTypes
-    | CreateActionTypes
-
+export type ActionTypes = FetchAllActionTypes | FetchByIdActionTypes | CreateActionTypes;

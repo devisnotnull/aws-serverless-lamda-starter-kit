@@ -9,6 +9,6 @@ import * as styles from '../../style/common.css';
 
 export const HomeView: React.FC<IHomeComponentProps> = () => (
     <div className={styles.Container}>Homepage</div>
-)
+);
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeView);

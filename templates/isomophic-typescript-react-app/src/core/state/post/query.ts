@@ -1,21 +1,3 @@
-// Graphql input interfaces
-export interface IPageQueryOptionsInput {
-    options: {
-        paginate: {
-            page: number;
-            limit: number;
-        };
-    };
-}
-
-export interface ICreatePostInput {
-    input: {
-        id: string;
-        title: string;
-        body: string;
-    };
-}
-
 // GraphQL queries
 export const fetchPostsQuery = `
     query($options: PageQueryOptions!) {

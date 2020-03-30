@@ -9,6 +9,6 @@ import { IState } from './state';
 export default combineReducers<IState>({
     config,
     layout,
-    router: routerReducer,
     post,
+    router: routerReducer,
 });
