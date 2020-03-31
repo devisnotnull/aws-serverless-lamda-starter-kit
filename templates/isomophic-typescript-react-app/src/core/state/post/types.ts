@@ -1,5 +1,6 @@
-import { IRequestAction, IGraphqlResponseAction, IGraphqlQuery } from '../types';
 import { IPostArrayResponsePayload, IPostSingularResponsePayload } from '@core/models/post';
+
+import { IRequestAction, IGraphqlResponseAction, IGraphqlQuery } from '../types';
 
 // Graphql input interfaces
 export interface IPageQueryOptionsInput {
