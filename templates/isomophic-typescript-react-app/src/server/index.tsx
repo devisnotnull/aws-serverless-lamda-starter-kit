@@ -36,13 +36,6 @@ if (!PROD) {
     app.use(webpackHotMiddleware(compiler, { log: console.log }));
 }
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-    // const { assetsByChunkName } = res.locals.webpackStats.toJson();
-    // TODO: This needs to be implemented
-    // console.log(assetsByChunkName)
-    next();
-});
-
 app.get('*', renderPageExpress);
 
 // catch 404 and forward to error handler

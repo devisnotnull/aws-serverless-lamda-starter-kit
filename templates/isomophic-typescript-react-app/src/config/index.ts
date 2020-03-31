@@ -13,6 +13,7 @@ const defaultConfig: Config = {
     common: {
         env,
         graphql: 'https://graphqlzero.almansi.me/api',
+        rest: 'https://jsonplaceholder.typicode.com',
     },
     development: {},
     production: {},

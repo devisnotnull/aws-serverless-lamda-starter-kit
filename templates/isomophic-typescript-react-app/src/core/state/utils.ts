@@ -1,29 +1,38 @@
 // Action based call
 
-import { DocumentNode } from "graphql";
-import { getContext, call } from "redux-saga/effects";
-import ApolloClient from "apollo-client";
-import gql from "graphql-tag";
+import { DocumentNode } from 'graphql';
+import { getContext, call } from 'redux-saga/effects';
+import ApolloClient from 'apollo-client';
+import gql from 'graphql-tag';
+import axios from 'axios';
 
-import { IPayload } from './types';
+import { IPayload, IRestRequest } from './types';
 
-// We have bound apollo client as a context in redux saga.
-// https://github.com/apollographql/apollo-client/issues/2593
-// We can use the inbuild apollo client hooks or use redux still
-
-export function* fetch<V, R>(
-    query: string | DocumentNode,
-    variables: V
-) {
+/**
+ * Graphql proxy call
+ * @param query
+ * @param variables
+ */
+export function* fetch<V, R>(query: string | DocumentNode, variables: V) {
     const client: ApolloClient<any> = yield getContext('client');
-    const data: IPayload<R> = yield call(
-        client.query,
-        {
-            query: gql`
-                ${query}
-            `,
-            variables,
-        }
-    );
+    const data: IPayload<R> = yield call(client.query, {
+        query: gql`
+            ${query}
+        `,
+        variables,
+    });
     return data;
+}
+
+/**
+ * Rest saga proxy
+ * @param query
+ */
+export function* get<T>(query: IRestRequest) {
+    const client: string = yield getContext('rest');
+    const queryString = Object.keys(query.query)
+        .map((key) => `${query.query}=${query.query[key] ?? ''}`)
+        .join('&');
+    const payload: IPayload<T> = yield call(axios.get, `${client}${query.path}?${queryString}`);
+    return payload;
 }

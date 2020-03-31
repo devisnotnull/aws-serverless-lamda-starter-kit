@@ -2,14 +2,13 @@
 
 exports[`post saga: fetchAll saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
 Object {
-  "put": Array [
+  "call": Array [
     Object {
       "@@redux-saga/IO": true,
       "combinator": false,
       "payload": Object {
-        "action": Object {
-          "request": Object {
-            "query": "
+        "args": Array [
+          "
     query($options: PageQueryOptions!) {
         posts(options: $options) {
             data {
@@ -22,20 +21,44 @@ Object {
         }
     }
 ",
-            "variables": Object {
-              "options": Object {
-                "paginate": Object {
-                  "limit": 2,
-                  "page": 1,
-                },
+          Object {
+            "options": Object {
+              "paginate": Object {
+                "limit": 40,
+                "page": 1,
               },
             },
           },
-          "type": "@post/FETCH_ALL",
-        },
-        "channel": undefined,
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/fetch",
       },
-      "type": "PUT",
+      "type": "CALL",
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "args": Array [
+          Object {
+            "next": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "return": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "throw": "@@redux-saga-test-plan/json/function/<anonymous>",
+          },
+          "@@redux-saga-test-plan/json/function/refineYieldedValue",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/sagaWrapper",
+      },
+      "type": "CALL",
+    },
+  ],
+  "getContext": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": "client",
+      "type": "GET_CONTEXT",
     },
   ],
 }
@@ -100,38 +123,6 @@ Object {
       "combinator": false,
       "payload": "client",
       "type": "GET_CONTEXT",
-    },
-  ],
-}
-`;
-
-exports[`post saga: fetchById saga: snapshot: fetchById with param 1`] = `
-Object {
-  "put": Array [
-    Object {
-      "@@redux-saga/IO": true,
-      "combinator": false,
-      "payload": Object {
-        "action": Object {
-          "request": Object {
-            "query": "
-    query($id: ID!) {
-        post(id: $id) {
-            id
-            title
-            body
-        }
-    }
-",
-            "variables": Object {
-              "id": 1,
-            },
-          },
-          "type": "@post/FETCH_BY_ID",
-        },
-        "channel": undefined,
-      },
-      "type": "PUT",
     },
   ],
 }

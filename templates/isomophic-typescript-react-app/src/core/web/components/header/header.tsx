@@ -24,6 +24,11 @@ export const Header: React.FC<IHomeComponentProps> = () => (
                     <RouterLink to={'/posts'}>GraphQl Posts</RouterLink>
                 </Heading>
             </div>
+            <div>
+                <Heading size="medium">
+                    <RouterLink to={'/users'}>Rest API Users</RouterLink>
+                </Heading>
+            </div>
         </div>
     </Container>
 );

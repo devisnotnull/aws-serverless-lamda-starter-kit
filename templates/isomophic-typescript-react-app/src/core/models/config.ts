@@ -5,4 +5,5 @@ export interface IConfig {
     isBrowser: boolean;
     //
     graphql: string;
+    rest: string;
 }

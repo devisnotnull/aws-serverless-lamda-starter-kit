@@ -7,6 +7,7 @@ import Header from './components/header/header';
 import HomeViewContainer from './pages/home/home';
 import DemoViewContainer from './pages/demo/demo';
 import PostsContainer from './pages/posts/posts';
+import UsersContainer from './pages/users/users';
 import NotFoundComponent from './pages/notFound/notFound';
 
 import '@core/web/style/core.css';
@@ -28,13 +29,12 @@ class AppRouter extends React.Component<Props> {
                     <meta property="og:type" content="website" />
                     <meta name="robots" content="index, follow" />
                 </Helmet>
-
                 <Header />
-
                 <Switch>
                     <Route exact path="/" component={HomeViewContainer} />
                     <Route exact path="/demo" component={DemoViewContainer} />
                     <Route exact path="/posts" component={PostsContainer} />
+                    <Route exact path="/users" component={UsersContainer} />
                     <Route component={NotFoundComponent} />
                 </Switch>
             </>

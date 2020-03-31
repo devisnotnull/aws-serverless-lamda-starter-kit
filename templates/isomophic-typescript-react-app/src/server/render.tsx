@@ -47,8 +47,6 @@ const renderApp = (
     const context = {
         splitPoints: [],
     };
-
-    console.log('appConfiguration, ', appConfiguration);
     const rootComponent = PROD ? (
         <Provider store={store}>
             <StaticRouter location={url}>

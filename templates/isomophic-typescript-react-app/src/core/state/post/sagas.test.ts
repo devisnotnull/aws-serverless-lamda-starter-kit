@@ -1,4 +1,4 @@
-import { testSaga, expectSaga } from 'redux-saga-test-plan';
+import { expectSaga } from 'redux-saga-test-plan';
 
 import {
     fetchAllPostsRequest,
@@ -6,7 +6,7 @@ import {
     fetchAllPostsSucess,
     fetchByIdPostsSuccess,
 } from './actions';
-import { fetchAllSaga, fetchById, fetchAllStart, fetchByIdStart } from './sagas';
+import { fetchAllStart, fetchByIdStart } from './sagas';
 import { fetch } from '../utils';
 import { IPayload } from '../types';
 import { FetchAllAction, FetchByIdAction } from './types';
@@ -58,56 +58,6 @@ describe('post saga: fetchByIdStart', () => {
     it('saga: snapshot: fetchAllSaga with no page and limit params', async () => {
         const action: FetchAllAction = fetchAllPostsRequest() as FetchAllAction;
         const payload = (await expectSaga(fetchAllStart, action).run()).toJSON();
-        expect(payload).toMatchSnapshot();
-    });
-});
-
-describe('post saga: fetchAll', () => {
-    it('saga: fetchAllSaga with no params', () => {
-        testSaga(fetchAllSaga)
-            //
-            .next()
-            //
-            .put(fetchAllPostsRequest())
-            //
-            .next()
-            //
-            .isDone();
-    });
-
-    it('saga: fetchAllSaga with correct page and limit params', () => {
-        testSaga(fetchAllSaga, 1, 2)
-            //
-            .next()
-            //
-            .put(fetchAllPostsRequest(1, 2))
-            //
-            .next()
-            //
-            .isDone();
-    });
-
-    it('saga: snapshot: fetchAllSaga with no page and limit params', async () => {
-        const payload = (await expectSaga(fetchAllSaga, 1, 2).run()).toJSON();
-        expect(payload).toMatchSnapshot();
-    });
-});
-
-describe('post saga: fetchById', () => {
-    it('saga: fetchById with correct input param', () => {
-        testSaga(fetchById, 1)
-            //
-            .next()
-            //
-            .put(fetchByIdPostsRequest(1))
-            //
-            .next()
-            //
-            .isDone();
-    });
-
-    it('saga: snapshot: fetchById with param', async () => {
-        const payload = (await expectSaga(fetchById, 1).run()).toJSON();
         expect(payload).toMatchSnapshot();
     });
 });

@@ -49,10 +49,7 @@ export type FetchAllSucessAction = IGraphqlResponseAction<
 export type FetchAllErrorAction = IGraphqlResponseAction<typeof FETCH_ALL_ERROR, any>;
 export type FetchAllActionTypes = FetchAllAction | FetchAllSucessAction | FetchAllErrorAction;
 
-export type FetchByIdAction = IRequestAction<
-    typeof FETCH_BY_ID,
-    IGraphqlQuery<{ id: number }>
->;
+export type FetchByIdAction = IRequestAction<typeof FETCH_BY_ID, IGraphqlQuery<{ id: number }>>;
 export type FetchByIdSucessAction = IGraphqlResponseAction<
     typeof FETCH_BY_ID_SUCCESS,
     IPostSingularResponsePayload

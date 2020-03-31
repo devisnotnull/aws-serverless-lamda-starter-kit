@@ -37,6 +37,7 @@ export const initializeApolloClient = (
     ssr = false,
     usePersistedQueries = false
 ): ApolloClient<NormalizedCacheObject> => {
+    console.log('IS SSR, ', ssr);
     const link: ApolloLink = createLink(fetch, uri, usePersistedQueries);
     return new ApolloClient({
         cache: new InMemoryCache(),
