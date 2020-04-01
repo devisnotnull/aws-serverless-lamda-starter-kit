@@ -2,7 +2,7 @@ import { put, all, takeEvery, call } from 'redux-saga/effects';
 
 import { IPostSingularResponsePayload, IPostArrayResponsePayload } from '@core/models/post';
 
-import { fetchAllPostsRequest, fetchAllPostsSucess, fetchByIdPostsSuccess } from './actions';
+import { fetchAllPostsSucess, fetchByIdPostsSuccess } from './actions';
 
 import { IPayload, GraphQlGeneratorReturnType } from '../types';
 import { fetch } from '../utils';
@@ -32,14 +32,12 @@ export function* fetchByIdStart({
     }
 }
 
-// Functional proxy calls
-
-export function* fetchAllSaga(page?: number, limit?: number) {
-    yield fetchAllStart(fetchAllPostsRequest() as FetchAllAction);
-}
-
 // Listener generator funtions
 
 export function* postSagas() {
-    yield all([fetchAllSaga(), takeEvery(FETCH_ALL, fetchAllSaga)]);
+    yield all(
+        [
+            takeEvery(FETCH_ALL, fetchAllStart)
+        ]
+    );
 }

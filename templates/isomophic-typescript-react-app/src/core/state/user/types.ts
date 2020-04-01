@@ -8,7 +8,7 @@ export const FETCH_ALL_SUCCESS = '@user/FETCH_ALL_SUCCESS';
 export const FETCH_ALL_ERROR = '@user/FETCH_ALL_ERROR';
 export const FETCH_ALL_ABORT = '@user/FETCH_ALL_ABORT';
 
-// You can use the provided IResponseAction or IRequestAction interface.
+// You can use the provided IAction or IRequestAction interface.
 // The first Type argument is the action
 // The second Type argument is the payload or request
 export type FetchAllAction = IRequestAction<typeof FETCH_ALL, IRestRequest>;

@@ -24,7 +24,7 @@ export interface IRestRequest {
 
 // Typed response
 
-export interface IResponseAction<T, V> {
+export interface IAction<T, V> {
     type: T;
     payload: V | undefined;
 }
