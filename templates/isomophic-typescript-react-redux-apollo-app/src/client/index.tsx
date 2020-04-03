@@ -8,8 +8,7 @@ import createHistory from 'history/createBrowserHistory';
 
 import { ApolloProvider } from 'react-apollo'
 
-import client from '@core/state/apollo';
-import rootSaga from '@core/state/sagas';
+import { initializeApolloClient } from '@core/state/apollo';
 import createStore from '@core/state/store';
 import App from '@core/web/app';
 
@@ -20,9 +19,13 @@ const preloadedState: IState = (window as any).__INITIAL_STATE__;
 
 const history = createHistory();
 const store = createStore(history, preloadedState);
-(store as any).rootTask = (store as any).runSaga(rootSaga, preloadedState?.config?.config ?? {});
 
-const apolloCient = client(fetch, preloadedState?.config?.config?.graphql ?? '', !preloadedState?.config?.config?.isBrowser ?? false, false);
+const apolloCient = initializeApolloClient(
+    fetch,
+    preloadedState?.config?.config?.graphql ?? '',
+    !preloadedState?.config?.config?.isBrowser ?? false,
+    false
+);
 
 ReactDOM.render(
     <ApolloProvider client={apolloCient}>

@@ -24,16 +24,16 @@ const generatePostCard = (post: IPost) => (
     </Column>
 );
 
-export class PostView extends React.Component<Props, any> {
+export class PostView extends React.PureComponent<Props, IPost> {
     render() {
-        const { loading, posts, errors } = this.props;
+        const { data } = this.props
         return (
             <Container>
-                <Row>{errors && errors}</Row>
-                <Row>{loading && <Spinner />}</Row>
+                <Row>{data?.error && data?.error?.message}</Row>
+                <Row>{data?.loading && <Spinner />}</Row>
                 <Row>
-                    {posts &&
-                        posts.map((post: IPost, iterator: number) => {
+                    {data?.posts &&
+                        data.posts.map((post: IPost, iterator: number) => {
                             return generatePostCard(post);
                         })}
                 </Row>

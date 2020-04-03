@@ -4,7 +4,7 @@ import { IPost } from "@core/models/post";
 
 // GraphQL payload response
 export interface IPostResult {
-    options?: IPost[];
+    posts?: IPost[];
 }
 
 // The props we expect to be passed directly to this component.

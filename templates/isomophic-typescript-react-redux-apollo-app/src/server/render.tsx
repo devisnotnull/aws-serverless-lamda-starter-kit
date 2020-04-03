@@ -11,7 +11,6 @@ import { existsSync, readFileSync } from 'fs';
 import { config } from '@config/index';
 import { IConfig } from '@core/models/config';
 import createStore from '@core/state/store';
-import rootSaga from '@core/state/sagas';
 import App from '@core/web/app';
 
 import Html from './html';
@@ -54,30 +53,26 @@ const renderApp = (
             </StaticRouter>
         </Provider>
     ) : null;
-    (store as any)
-        .runSaga(rootSaga, appConfiguration)
-        .toPromise()
-        .then(() => {
-            // Get state from store after sagas were run and strigify it for rendering in HTML
-            const state = store.getState();
-            const initialState = `window.__INITIAL_STATE__ = ${JSON.stringify({
-                ...state,
-                config: { config: appConfiguration },
-            })}`;
-            const splitPoints = `window.__SPLIT_POINTS__ = ${JSON.stringify(context.splitPoints)}`;
-            const html = renderToString(
-                <Html
-                    PROD={PROD}
-                    assets={manifest}
-                    rootComponent={rootComponent}
-                    initialState={initialState}
-                    splitPoints={splitPoints}
-                />
-            );
-            res.send(html);
-        });
-    // Dispatch a close event so sagas stop listening after they're resolved
-    (store as any).closeSagas();
+
+    // 
+    const state = store.getState();
+    const initialState = `window.__INITIAL_STATE__ = ${JSON.stringify({
+        ...state,
+        config: { config: appConfiguration },
+    })}`;
+    const splitPoints = `window.__SPLIT_POINTS__ = ${JSON.stringify(context.splitPoints)}`;
+    const html = renderToString(
+        <Html
+            PROD={PROD}
+            assets={manifest}
+            rootComponent={rootComponent}
+            initialState={initialState}
+            splitPoints={splitPoints}
+        />
+    );
+    res.send(html);
+    
+    //
     return response;
 };
 
