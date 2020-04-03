@@ -43,5 +43,4 @@ export class PostView extends React.PureComponent<Props, IPost> {
 }
 
 export const PostContainer = RenderComponent(PostView)
-
 export default PostContainer;

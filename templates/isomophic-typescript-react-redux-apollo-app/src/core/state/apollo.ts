@@ -22,10 +22,10 @@ const createLink = (fetch, uri: string, usePersistedQueries: boolean): ApolloLin
     ApolloLink.from([
         ...(usePersistedQueries
             ? [
-                  createPersistedQueryLink({
-                      useGETForHashedQueries: usePersistedQueries,
-                  }),
-              ]
+                    createPersistedQueryLink({
+                        useGETForHashedQueries: usePersistedQueries,
+                    }),
+                ]
             : []),
         errorLink,
         createHttpLink({ uri, fetch }),

@@ -4,7 +4,9 @@ import { fetchPostsQuery } from '@core/state/post/query';
 import { IPostResult, OwnProps } from './posts.props'
 
 export const Render = graphql<IPostResult, OwnProps>(fetchPostsQuery, {
-    posts: () => ({})
+    variables: {
+        
+    }
 })
 
 export default Render;
