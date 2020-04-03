@@ -1,0 +1,33 @@
+@import url('breakpoint.css');
+@import url('colours.css');
+@import url('input.css');
+@import url('fonts.css');
+@import url('animation.css');
+@import url('common.css');
+@import url('grid.css');
+
+:root {
+    --base-pad: 1rem;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    max-width: var(--max-size);
+    font-weight: var(--base-font-weight);
+    font-family: var(--base-font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+    font-size: var(--base-font-size);
+    color: var(--font-colour);
+    font-weight: var(--base-font-weight);
+    font-size: var(--base-font-size);
+    font-family: var(--base-font-famiy);
+    background-color: var(--base-background-colour);
+    font-weight: 100;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

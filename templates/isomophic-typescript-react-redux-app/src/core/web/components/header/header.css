@@ -1,0 +1,11 @@
+.Header {
+    padding: var(--base-pad);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (--viewport-mobile) {
+    .Header {
+        display: block;
+    }
+}
