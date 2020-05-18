@@ -1,0 +1,6 @@
+:root {
+    --max-size: 130rem;
+}
+
+@custom-media --viewport-desktop (min-width: 1000px);
+@custom-media --viewport-tablet (min-width: 700px);

@@ -1,0 +1,28 @@
+.Align--Center {
+    margin: 0 auto;
+}
+
+.Container {
+    max-width: var(--max-size);
+    background: #ffffff;
+    margin: 0 auto;
+}
+
+.Block {
+    border-bottom: 2px solid var(--base-background-colour);
+    margin-bottom: 2rem;
+}
+
+.Block:after {
+    width: 100%;
+    height: 0.3rrem;
+    background: #ddd;
+    opacity: 0.5;
+    margin-top: 1.5rrem;
+    content: '';
+    display: block;
+}
+
+.Clearfix {
+    clear: both;
+}

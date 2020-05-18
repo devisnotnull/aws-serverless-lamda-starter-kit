@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`post saga: fetchAllStart saga: snapshot: fetchAllSaga with no page and limit params 1`] = `
+Object {
+  "call": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "args": Array [
+          Object {
+            "body": Object {},
+            "path": "/users",
+            "query": Object {},
+            "verb": "GET",
+          },
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/get",
+      },
+      "type": "CALL",
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "args": Array [
+          Object {
+            "next": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "return": "@@redux-saga-test-plan/json/function/<anonymous>",
+            "throw": "@@redux-saga-test-plan/json/function/<anonymous>",
+          },
+          "@@redux-saga-test-plan/json/function/refineYieldedValue",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/sagaWrapper",
+      },
+      "type": "CALL",
+    },
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": Object {
+        "args": Array [
+          "undefined/users?",
+        ],
+        "context": null,
+        "fn": "@@redux-saga-test-plan/json/function/wrap",
+      },
+      "type": "CALL",
+    },
+  ],
+  "getContext": Array [
+    Object {
+      "@@redux-saga/IO": true,
+      "combinator": false,
+      "payload": "rest",
+      "type": "GET_CONTEXT",
+    },
+  ],
+}
+`;

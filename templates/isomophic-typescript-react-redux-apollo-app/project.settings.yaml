@@ -1,0 +1,36 @@
+project:
+    buildStage:
+        - name: install-deps
+          image: 496870459963.dkr.ecr.eu-west-1.amazonaws.com/photobox/ecom-docker-images/node-12-builder:12.10.0
+          args: export HOME=${WORKSPACE}; npm-cli-adduser -u "${NPM_USER}" -p "${NPM_PASS}" -e "${NPM_EMAIL}"; rm -fr node_modules; yarn install && yarn bootstrap
+          withCredentials:
+              credentialsId: 'npm'
+              usernameVariable: 'NPM_USER'
+              passwordVariable: 'NPM_PASS'
+        - name: lint-javascript
+          image: 496870459963.dkr.ecr.eu-west-1.amazonaws.com/photobox/ecom-docker-images/node-12-builder:12.10.0
+          args: export HOME=${WORKSPACE}; yarn lint
+        - name: unit-tests
+          image: 496870459963.dkr.ecr.eu-west-1.amazonaws.com/photobox/ecom-docker-images/node-12-builder:12.10.0
+          args: export HOME=${WORKSPACE}; yarn test
+        - name: build-application
+          image: 496870459963.dkr.ecr.eu-west-1.amazonaws.com/photobox/ecom-docker-images/node-12-builder:12.10.0
+          args: export HOME=${WORKSPACE}; yarn build
+        - name: runtime-deps
+          image: 496870459963.dkr.ecr.eu-west-1.amazonaws.com/photobox/ecom-docker-images/node-12-builder:12.10.0
+          args: export HOME=${WORKSPACE}; yarn install --prod
+    deployStage:
+        - name: deploy-staging
+          type: deployment
+          environment: staging
+          branch: master
+        - name: confirm-deploy-production
+          image: busybox
+          args: echo "Waiting for confirmation before deploying this build to production.";
+          branch: master
+          input:
+              message: 'Deploy to production ?'
+        - name: deploy-production
+          type: deployment
+          environment: production
+          branch: master

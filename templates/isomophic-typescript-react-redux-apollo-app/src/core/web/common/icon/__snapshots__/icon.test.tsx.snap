@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SvgIcon /> snapshot: renders basket icon 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders locale icon 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders tick arrow 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders tick arrow-down 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders tick arrow-left 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders tick arrow-right 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders tick arrow-up 1`] = `ShallowWrapper {}`;
+
+exports[`SvgIcon /> snapshot: renders tick icon 1`] = `ShallowWrapper {}`;

@@ -1,0 +1,32 @@
+declare const styles: {
+  readonly "Grid--container": string;
+  readonly "Grid--row": string;
+  readonly "Grid--col-1": string;
+  readonly "Grid--col-2": string;
+  readonly "Grid--col-3": string;
+  readonly "Grid--col-4": string;
+  readonly "Grid--col-5": string;
+  readonly "Grid--col-6": string;
+  readonly "Grid--col-7": string;
+  readonly "Grid--col-8": string;
+  readonly "Grid--col-9": string;
+  readonly "Grid--col-10": string;
+  readonly "Grid--col-11": string;
+  readonly "Grid--col-12": string;
+  readonly "Grid--col-1-sm": string;
+  readonly "Grid--col-2-sm": string;
+  readonly "Grid--col-3-sm": string;
+  readonly "Grid--col-4-sm": string;
+  readonly "Grid--col-5-sm": string;
+  readonly "Grid--col-6-sm": string;
+  readonly "Grid--col-7-sm": string;
+  readonly "Grid--col-8-sm": string;
+  readonly "Grid--col-9-sm": string;
+  readonly "Grid--col-10-sm": string;
+  readonly "Grid--col-11-sm": string;
+  readonly "Grid--col-12-sm": string;
+  readonly "Grid--hidden-sm": string;
+  readonly "Grid--hidden": string;
+};
+export = styles;
+

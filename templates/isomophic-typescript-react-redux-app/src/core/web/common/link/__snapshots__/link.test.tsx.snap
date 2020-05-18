@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link /> snapshot: renders link with extrenal link 1`] = `ShallowWrapper {}`;
+
+exports[`<Link /> snapshot: renders link with internal link 1`] = `ShallowWrapper {}`;

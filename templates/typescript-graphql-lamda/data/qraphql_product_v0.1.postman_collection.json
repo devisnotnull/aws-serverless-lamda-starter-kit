@@ -1,0 +1,577 @@
+{
+	"info": {
+		"_postman_id": "b78506f8-2c74-4e43-adcf-f7a907c64b4e",
+		"name": "GraphQL Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Variant by id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetVaariantById($uuid: String!) {\n  getVariantById(uuid: $uuid) {\n        id\n        uuid\n        name\n        babelId\n        studioUrlTemplate\n        productionSKU\n  }\n}",
+						"variables": "{\n\t\"uuid\": \"716e0a67-798f-413e-9df0-0d8691b65d24\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product by id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query GetProductById($uuid: String!) {\n  getProductById(uuid: $uuid) {\n        uuid\n        name\n        label\n        productType\n        variants {\n            id\n            uuid\n            name\n            babelId\n            studioUrlTemplate\n            productionSKU\n        }\n        options {\n            uuid\n        }\n  }\n}",
+						"variables": "{\n\t\"uuid\": \"5cf17f29-03cf-4e93-b15e-bc48f2516ab8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categorization - By Type",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getGategorizationByType($type: String!) {\n  getGategorizationByType(type: $type) {\n        id\n        tag\n        type\n        brand\n        locale\n        items  {\n            weight\n            partition\n            key\n            value\n        }\n    }\n}",
+						"variables": "{\n\t\"type\": \"recommendation\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categorization - By Child Values",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getGategorizationByType($type: String!) {\n  getGategorizationByType(type: $type) {\n        id\n        tag\n        type\n        brand\n        locale\n        items  {\n            weight\n            partition\n            key\n            value\n        }\n    }\n}",
+						"variables": "{\n\t\"type\": \"recommendation\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categorization - By Tag",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getGategorizationByTag($tag: String!) {\n  getGategorizationByTag(tag: $tag) {\n        id\n        tag\n        type\n        brand\n        locale\n        items  {\n            weight\n            partition\n            key\n            value\n        }\n    }\n}",
+						"variables": "{\n\t\"tag\": \"product-options/5cf17f29-03cf-4e93-b15e-bc48f2516ab8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    getAllProducts {\n        uuid\n        name\n        label\n        productType\n        variants {\n            uuid\n            name\n            babelId\n        \n        }\n    }\n}",
+						"variables": "{}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Variants",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    getAllVariants {\n        id\n        uuid\n        name\n        babelId\n        studioUrlTemplate\n        productionSKU\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Option Groups",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    getAllOptionGroups {\n        id\n        name\n        options {\n            uuid\n        }\n    }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Options",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    getAllOptions {\n        uuid\n        label\n        origin\n    }\n}",
+						"variables": "{\n\t\"product\": {\n\t\t\"id\": \"wdwwwwwww\",\n\t\t\"name\": \"22222\"\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Categorizations",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "{\n    getAllCategorizations {\n        id\n        tag\n        type\n        brand\n        locale\n        items  {\n            weight\n            partition\n            key\n            value\n        }\n    }\n}",
+						"variables": "{\n\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Option Group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateOptionGroup($optionGroup: OptionGroupInput!) {\n  addOptionGroup(data: $optionGroup) {\n        id\n        uuid\n        name\n        label\n  }\n}",
+						"variables": "{\n\t\"optionGroup\": {\n\t\t\"name\": \"222dddevddddv22\",\n\t\t\"label\": \"label\",\n\t\t\"options\": [{\n\t\t\t\"label\": \"label-one\",\n\t\t\t\"origin\": \"feef\"\n\t\t}]\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create categorization - Recommendation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateCategorization($categorization: CategorizationInput!) {\n  addCategorization(data: $categorization) {\n      id\n      uuid\n      tag\n      type\n      brand\n      locale\n      device\n      items {\n          id\n          weight\n          partition\n          key\n          value\n      }\n  }\n}",
+						"variables": "{\n        \"categorization\": {\n            \"tag\": \"recommendation/00200200-22022-23333434-3434343\",\n            \"type\": \"recommendation\",\n            \"brand\": \"photobox\",\n            \"locale\": \"photobox\",\n            \"device\": \"default\",\n            \"items\":[{\n            \t\"partition\": \"\",\n                \"weight\": 0,\n                \"key\": \"product\",\n                \"value\": \"4343443-4343434-3434343434-3434343434-34343434\"\n            }]\n        }\n    }"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create categorization - Range Page",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateCategorization($categorization: CategorizationInput!) {\n  addCategorization(data: $categorization) {\n      id\n      uuid\n      tag\n      type\n      brand\n      locale\n      device\n      items {\n          id\n          weight\n          partition\n          key\n          value\n      }\n  }\n}",
+						"variables": "{\n        \"categorization\": {\n            \"tag\": \"recommendation/00200200-22022-23333434-3434343\",\n            \"type\": \"recommendation\",\n            \"brand\": \"photobox\",\n            \"locale\": \"photobox\",\n            \"device\": \"default\",\n            \"items\":[{\n            \t\"partition\": \"\",\n                \"weight\": 0,\n                \"key\": \"product\",\n                \"value\": \"4343443-4343434-3434343434-3434343434-34343434\"\n            }]\n        }\n    }"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create categorization - Product Options",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateCategorization($categorization: CategorizationInput!) {\n  addCategorization(data: $categorization) {\n      id\n      uuid\n      tag\n      type\n      brand\n      locale\n      device\n      items {\n          id\n          weight\n          partition\n          key\n          value\n      }\n  }\n}",
+						"variables": "{\n\n    \"categorization\": {\n        \"tag\": \"product-options/5cf17f29-03cf-4e93-b15e-bc48f2516ab9\",\n        \"type\": \"product-options\",\n        \"brand\": \"default\",\n        \"locale\": \"default\",\n        \"device\": \"default\",\n        \"items\":[\n            {\n                \"weight\": 0,\n                \"partition\": \"option-groups/npp-type\",\n                \"key\": \"option-group\",\n                \"value\": \"option-group/33434\"\n            },\n            {\n                \"weight\": 1,\n                \"partition\": \"option-groups/npp-type\",\n                \"key\": \"option\",\n                \"value\": \"options/npps-40330\"\n            },\n            {\n                \"weight\": 2,\n                \"partition\": \"option-groups/npp-type\",\n                \"key\": \"option\",\n                \"value\": \"options/npps-3344\"\n            },\n            {\n                \"weight\": 0,\n                \"partition\": \"option-groups/npp-portrait\",\n                \"key\": \"option\",\n                \"value\": \"options/npps-4030\"\n            },\n            {\n                \"weight\": 1,\n                \"partition\": \"option-groups/npp-portrait\",\n                \"key\": \"option-group\",\n                \"value\": \"options/npps-4030\"\n            },\n            {\n                \"weight\": 2,\n                \"partition\": \"option-groups/npp-portrait\",\n                \"key\": \"option-group\",\n                \"value\": \"options/npps-4030\"\n            }\n        ]\n    }\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create categorization - Product Incompatabillities",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateCategorization($categorization: CategorizationInput!) {\n  addCategorization(data: $categorization) {\n      id\n      uuid\n      tag\n      type\n      brand\n      locale\n      device\n      items {\n          id\n          weight\n          partition\n          key\n          value\n      }\n  }\n}",
+						"variables": "    {\n        \"categorization\": {\n            \"tag\": \"product-incompatabilities/5cf17f29-03cf-4e93-b15e-bc48f2516ab8\",\n            \"type\": \"product-incompatabilities\",\n            \"brand\": \"default\",\n            \"locale\": \"default\",\n            \"device\": \"default\",\n            \"items\":[\n                {\n                    \"weight\": 0,\n                    \"partition\": \"options/nppt-timelessframedprint\",\n                    \"key\": \"option\",\n                    \"value\": \"options/npps-10075\"\n                },\n                {\n                    \"weight\": 0,\n                    \"partition\": \"options/nppt-timelessframedprint\",\n                    \"key\": \"option\",\n                    \"value\": \"options/npps-40330\"\n                }\n            ]\n        }\n    }"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create categorization - Variant options",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateCategorization($categorization: CategorizationInput!) {\n  addCategorization(data: $categorization) {\n      id\n      uuid\n      tag\n      type\n      brand\n      locale\n      device\n      items {\n          id\n          weight\n          partition\n          key\n          value\n      }\n  }\n}",
+						"variables": "    {\n        \"categorization\": {\n            \"tag\": \"product-incompatabilities/5cf17f29-03cf-4e93-b15e-bc48f2516ab8\",\n            \"type\": \"product-incompatabilities\",\n            \"brand\": \"default\",\n            \"locale\": \"default\",\n            \"device\": \"default\",\n            \"items\":[\n                {\n                    \"weight\": 0,\n                    \"partition\": \"options/nppt-timelessframedprint\",\n                    \"key\": \"option\",\n                    \"value\": \"options/npps-10075\"\n                },\n                {\n                    \"weight\": 0,\n                    \"partition\": \"options/nppt-timelessframedprint\",\n                    \"key\": \"option\",\n                    \"value\": \"options/npps-40330\"\n                }\n            ]\n        }\n    }"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create option group",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateOptionGroup($optionGroup: OptionGroupInput!) {\n  addOptionGroup(data: $optionGroup) {\n      id\n      uuid\n  }\n}",
+						"variables": "{\n    \"optionGroup\": {\n    \t\"name\": \"efee\",\n    \t\"label\": \"efeefefe\",\n    \t\"options\": []\n    }\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create option",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateOption($option: OptionInput!) {\n  addOption(data: $option) {\n      id\n      uuid\n  }\n}",
+						"variables": "{\n    \"option\": {\n\t\t\"label\": \"n34344\",\n\t\t\"origin\": \"rollercoaster\"\n    }\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create variant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateVariant($variant: VariantInput!) {\n  addVariant(data: $variant) {\n      name\n  }\n}",
+						"variables": "{\n    \"variant\": {\n        \"name\": \"narweweegrgrge\",\n        \"studioUrlTemplate\": \"/\",\n        \"productionSKU\": 2,\n        \"productRef\": \"d9da350a-ca26-4567-8f47-76e6bb0269e2\",\n        \"covenant\": \"wdwwd\",\n        \"babelId\": 2323,\n        \"nonPersonalised\": \"uwecwicvwi\"\n    }\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation CreateVariant($product: ProductInput!) {\n  addProduct(data: $product) {\n      id\n      uuid\n      name\n      variants {\n          uuid\n      }\n  }\n}",
+						"variables": "{\n\t\"product\": {\n\t\t\"name\": \"2ee2seeredde2edeeefedfedwd2ef22\",\n\t\t\"label\": \"werdefefeddedrdffedfedeefgwderg\",\n\t\t\"productType\": \"qefwefwef\",\n\t\t\"variants\": [{\n            \"name\": \"nardeffrddeeeergrgrge\",\n            \"studioUrlTemplate\": \"/\",\n            \"productionSKU\": 2,\n            \"covenant\": \"wdwwd\",\n            \"babelId\": 2323,\n            \"nonPersonalised\": \"uwecwicvwi\"\n\t    },\n\t    {\n            \"name\": \"nardgrffeddeeeegrge\",\n            \"studioUrlTemplate\": \"/\",\n            \"productionSKU\": 2,\n            \"covenant\": \"wdwwd\",\n            \"babelId\": 2323,\n            \"nonPersonalised\": \"uwecwicvwi\"\n\t    }]\n\t}\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product with catagoriztion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query getProductWithCategorization($options: String!, $recommendations: String!) {\n  options: getGategorizationByTag(tag: $options) {\n        id\n        tag\n        type\n        brand\n        locale\n        items  {\n            weight\n            partition\n            key\n            value\n        }\n    }\n    recommendations: getGategorizationByTag(tag: $recommendations) {\n        id\n        tag\n        type\n        brand\n        locale\n        items  {\n            weight\n            partition\n            key\n            value\n        }\n    }\n}",
+						"variables": "{\n\t\"options\": \"product-options/5cf17f29-03cf-4e93-b15e-bc48f2516ab8\",\n\t\"recommendations\": \"product-options/5cf17f29-03cf-4e93-b15e-bc48f2516ab8\",\n\t\"incompatabilities\": \"product-incompatabilities/5cf17f29-03cf-4e93-b15e-bc48f2516ab8\"\n}"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/v2/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v2",
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
