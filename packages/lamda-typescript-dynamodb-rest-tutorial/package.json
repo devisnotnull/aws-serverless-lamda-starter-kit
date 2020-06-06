@@ -55,7 +55,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "apollo-server-lambda": "^2.9.13",
+    "apollo-server-lambda": "^2.14.2",
     "aws-lambda": "^0.1.2",
     "aws-sdk": "^2.620.0",
     "catbox-memory": "^4.0.1",
