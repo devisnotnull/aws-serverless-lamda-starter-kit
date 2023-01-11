@@ -60,7 +60,7 @@
     "aws-sdk": "^2.620.0",
     "catbox-memory": "^4.0.1",
     "class-transformer": "0.2.3",
-    "class-validator": "0.11.0",
+    "class-validator": "0.14.0",
     "fp-ts": "^2.3.1",
     "io-ts": "^2.0.2",
     "rambda": "^4.4.0",
